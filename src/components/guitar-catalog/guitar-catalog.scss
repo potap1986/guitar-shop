@@ -1,0 +1,46 @@
+.guitar-catalog {}
+
+.guitar-catalog__stars {
+  position: relative;
+  display: inline-block;
+  width: 68px;
+  height: 12px;
+
+  &::before {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    background: url("../../img/stars.svg") transparent no-repeat center;
+  }
+
+  span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    height: 100%;
+    overflow: hidden;
+
+    &::before {
+      content: "";
+      display: inline-block;
+      height: 100%;
+      background: url("../../img/stars-active.svg") transparent no-repeat center;
+    }
+  }
+}
+
+.guitar-catalog__stars-active {
+  width: 68px;
+  height: 12px;
+
+  &::before {
+    background-size: 68px 12px;
+    width: 68px;
+  }
+
+  span::before {
+    background-size: 68px 12px;
+    width: 68px;
+  }
+}
