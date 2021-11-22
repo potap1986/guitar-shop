@@ -1,1 +1,88 @@
-.guitar-bag {}
+.guitar-bag {
+  border-bottom: 0.7px solid #DDDADA;
+  display: flex;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  justify-content: space-between;
+}
+
+.guitar-bag__close {
+  cursor: pointer;
+  align-self: flex-start;
+  width: 12px;
+  height: 12px;
+  border: none;
+  background-color: inherit;
+}
+
+.guitar-bag__image {
+  width: 6%;
+}
+
+.guitar-bag__info {
+  width: 28%;
+
+  p {
+    margin: 0;
+    padding: 0;
+    margin-bottom: 6px;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 15px;
+    letter-spacing: 0.05em;
+    color: #000000;
+  }
+}
+
+.guitar-bag__title {
+  padding: 0;
+  margin: 0;
+  margin-bottom: 14px;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 15px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #000000;
+}
+
+.guitar-bag__price {
+  text-align: right;
+  align-self: center;
+  width: 10%;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 15px;
+  letter-spacing: 0.05em;
+  color: #000000;
+
+}
+
+.guitar-bag__buttons {
+  text-align: right;
+  margin-top: 40px;
+  width: 10%;
+
+  * {
+    display: inline-block;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 15px;
+    letter-spacing: 0.05em;
+    color: #9F9E9E;
+    padding: 9px;
+    border: 1px solid #9F9E9E;
+    background-color: inherit;
+    margin-left: -1px;
+  }
+}
+
+.guitar-bag__sum {
+  text-align: right;
+  align-self: center;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 15px;
+  letter-spacing: 0.05em;
+  color: #000000;
+}

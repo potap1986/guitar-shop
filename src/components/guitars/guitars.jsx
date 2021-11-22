@@ -7,14 +7,16 @@ import './guitars.scss'
 
 const Guitars = (props) => {
   return (
-    <div>
+    <div className="guitars">
       <Sort />
-      {props.guitars.map((guitar, index) => (
-        <GuitarCatalog
-          key={guitar.id + index}
-          guitar={guitar}  
-        />
-      ))}
+      <div className="guitars__catalog">
+        {props.guitars.map((guitar, index) => (
+          <GuitarCatalog
+            key={guitar.id + index}
+            guitar={guitar}  
+          />
+        ))}
+      </div>
       <Navigation />
     </div>
   )

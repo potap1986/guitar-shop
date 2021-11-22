@@ -9,7 +9,7 @@ const Filter = () => {
       <form action="#">
         <div className="filter__section">
           <h4 className="filter__title">Цена, ₽</h4>
-          <div>
+          <div className="filter__input-text">
             <label htmlFor="min-price" className="visually-hidden">Минимальная цена</label>
             <input className="filter__input" name="min-price" id="min-price" type="text" />
             <span>—</span>
@@ -37,7 +37,7 @@ const Filter = () => {
           <input className="filter__input-checkbox visually-hidden" id="twelwe" name="twelwe" type="checkbox" />
           <label className="filter__checkbox" htmlFor="twelwe">{StringsCount.TWELVE}</label>
         </div>
-        <button>ПОКАЗАТЬ</button>
+        <button className="filter__button">ПОКАЗАТЬ</button>
       </form>
     </div>
   )

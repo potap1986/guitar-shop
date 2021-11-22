@@ -3,12 +3,12 @@ import './navigation.scss'
 
 const Navigation = () => {
   return (
-    <div>
-      <button>1</button>
-      <button>2</button>
-      <button>...</button>
-      <button>7</button>
-      <button>Далее</button>
+    <div className="navigation">
+      <button className="navigation__button navigation__button--active">1</button>
+      <button className="navigation__button">2</button>
+      <button className="navigation__button">...</button>
+      <button className="navigation__button">7</button>
+      <button className="navigation__button">Далее</button>
     </div>
   )
 }

@@ -1,1 +1,46 @@
-.sort {}
+.sort {
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.sort__title {
+  padding: 0;
+  margin: 0;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.05em;
+  color: #000000;
+  margin-right: 19px;
+}
+
+.sort__type {
+  cursor: pointer;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.05em;
+  color: #000000;
+  background: inherit;
+  border: none;
+  margin-right: 34px;
+}
+
+.sort__buttons {
+  margin-left: auto;
+
+}
+
+.sort__button {
+  cursor: pointer;
+  background: inherit;
+  border: none;
+  margin-right: 15px;
+
+  &--to-small {
+
+    svg {
+      transform: rotate(180deg);
+    }
+  }
+}

@@ -1,8 +1,42 @@
-.guitar-catalog {}
+.guitar-catalog {
+  width: calc(33% - 12px);
+  display: inline-block;
+  margin-right: 20px;
+  margin-bottom: 30px;
+  border: 1px solid #DDDADA;
+  padding: 16px 14px 20px;
+  text-align: center;
+
+  &:nth-child(3n+3) {
+    margin-right: 0;
+  }
+}
+
+.guitar__image {
+  margin-bottom: 8px;
+}
+
+.guitar__rating {
+  display: flex;
+  flex-direction: start;
+  padding-right: 30px;
+  margin-bottom: 7px;
+
+  >span {
+    font-weight: normal;
+    font-size: 10px;
+    line-height: 15px;
+    text-align: center;
+    letter-spacing: 0.1em;
+    color: #9F9E9E;
+    padding-top: 2px;
+  }
+}
 
 .guitar-catalog__stars {
   position: relative;
   display: inline-block;
+  margin-right: 3px;
   width: 68px;
   height: 12px;
 
@@ -33,6 +67,7 @@
 .guitar-catalog__stars-active {
   width: 68px;
   height: 12px;
+  display: inline-block;
 
   &::before {
     background-size: 68px 12px;
@@ -43,4 +78,44 @@
     background-size: 68px 12px;
     width: 68px;
   }
+}
+
+.guitar-catalog__info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+
+  span {
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 15px;
+    text-align: right;
+    letter-spacing: 0.05em;
+    color: #000000;
+  }
+}
+
+.guitar-catalog__buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.guitar-catalog__button {
+  border: none;
+  border-radius: 2px;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 15px;
+  letter-spacing: 0.02em;
+  color: #FFFFFF;
+  padding: 4px 9px;
+
+  &--left {
+    background: #C1C1C1;
+  }
+
+  &--right {
+    background: #E27F00;
+  }
+
 }

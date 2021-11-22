@@ -1,0 +1,8 @@
+.guitars {
+  width: calc(80% - 32px);
+}
+
+.guitars__catalog {
+  display: flex;
+  flex-wrap: wrap;
+}

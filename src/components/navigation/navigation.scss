@@ -1,0 +1,29 @@
+.navigation {
+  display: flex;
+  justify-content: end;
+}
+
+.navigation__button {
+  padding: 2px 9px;
+  border: 0.7px solid #9F9E9E;
+  box-sizing: border-box;
+  border-radius: 2px;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 20px;
+  letter-spacing: 0.05em;
+  color: #000000;
+  background-color: #FFFFFF;
+  margin-right: 10px;
+
+  &:nth-last-of-type() {
+    margin-right: 0;
+  }
+
+  &--active {
+    background: #585757;
+    border: none;
+    color: #FFFFFF;
+  }
+
+}

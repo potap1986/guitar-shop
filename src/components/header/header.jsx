@@ -7,22 +7,22 @@ const Header = () => {
     {
       name: "Каталог",
       to: "/",
-      exact: true
+      exact: "true"
     },
     {
       name: "Где купить?",
       to: "/near",
-      exact: false
+      exact: "false"
     },
     {
       name: "О компании",
       to: "/about",
-      exact: false
+      exact: "false"
     },
     {
       name: "Сервис-центры",
       to: "/servis",
-      exact: false
+      exact: "false"
     }
   ]
 
@@ -31,20 +31,20 @@ const Header = () => {
       name: "Магазины",
       svg: "location",
       to: "/location",
-      exact: false
+      exact: "false"
     },
     {
       name: "Поиск",
       svg: "search",
       to: "/search",
-      exact: false
+      exact: "false"
     },
     {
       name: "Корзина",
       svg: "bag",
       quantity: 0,
       to: "/bag",
-      exact: false
+      exact: "false"
     }
   ]
   
