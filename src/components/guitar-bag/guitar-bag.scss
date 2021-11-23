@@ -16,7 +16,7 @@
 }
 
 .guitar-bag__image {
-  width: 6%;
+  height: 124px;
 }
 
 .guitar-bag__info {
@@ -63,7 +63,7 @@
   margin-top: 40px;
   width: 10%;
 
-  * {
+  >* {
     display: inline-block;
     font-weight: normal;
     font-size: 16px;

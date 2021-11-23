@@ -2,9 +2,13 @@
 const ActionType = {
   OPEN_POPUP_INFO: 'openPopupInfo',
   CLOSE_POPUP_INFO: 'closePopupInfo',
-  OPEN_POPUP_ENTER: 'openPopupEnter',
-  CLOSE_POPUP_ENTER: 'closePopupEnter',
-  CHANGE_ACTIVE_TAB: 'changeActiveTab'
+  OPEN_POPUP_ADD: 'openPopupAdd',
+  CLOSE_POPUP_ADD: 'closePopupAdd',
+  OPEN_POPUP_DELETE: 'openPopupDelete',
+  CLOSE_POPUP_DELETE: 'closePopupDelete',
+  SET_ACTIVE_GUITAR: 'setActiveGuitar',
+  ADD_BAG: 'addBag',
+  DELETE_BAG: 'deleteBag',
 }
 
 const GuitarType = {

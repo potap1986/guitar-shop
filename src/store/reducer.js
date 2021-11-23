@@ -3,22 +3,34 @@ import {guitars} from '../data'
 
 const initialState = {
 	guitars: guitars,
-	isPopupEnterVisible: false,
+	isPopupAddVisible: false,
+	isPopupDeleteVisible: false,
 	isPopupInfoVisible: false,
-	activeTab: 0
+	activeGuitar: null,
+	bag: []
 }
 
 const reducer = (state = initialState, action) => {
 	switch (action.type) {
-		case ActionType.OPEN_POPUP_ENTER:
+		case ActionType.OPEN_POPUP_ADD:
 			return {
 				...state,
-				isPopupEnterVisible: action.payload
+				isPopupAddVisible: action.payload
 			};
-		case ActionType.CLOSE_POPUP_ENTER:
+		case ActionType.CLOSE_POPUP_ADD:
 			return {
 				...state,
-				isPopupEnterVisible: action.payload
+				isPopupAddVisible: action.payload
+			};
+		case ActionType.OPEN_POPUP_DELETE:
+			return {
+				...state,
+				isPopupDeleteVisible: action.payload
+			};
+		case ActionType.CLOSE_POPUP_DELETE:
+			return {
+				...state,
+				isPopupDeleteVisible: action.payload
 			};
 		case ActionType.OPEN_POPUP_INFO:
 			return {
@@ -30,11 +42,21 @@ const reducer = (state = initialState, action) => {
 				...state,
 				isPopupInfoVisible: action.payload
 			};
-		case ActionType.CHANGE_ACTIVE_TAB:
+		case ActionType.SET_ACTIVE_GUITAR:
 			return {
 				...state,
-				activeTab: action.payload
+				activeGuitar: action.payload
 			};
+		case ActionType.ADD_BAG:
+			return {
+				...state,
+				bag: [action.payload, ...state.bag]
+			};
+		case ActionType.DELETE_BAG:
+			return {
+				...state,
+				bag: state.bag.delete(action.payload)
+			}
 		default:
 			return state;
 	}

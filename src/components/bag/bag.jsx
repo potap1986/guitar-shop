@@ -1,11 +1,23 @@
 import "./bag.scss"
 import React from 'react';
-import { guitars } from "../../data";
 import GuitarBag from "../guitar-bag/guitar-bag";
 import { formatedNumber } from "../../utils";
+//import {connect} from 'react-redux'
 
-const Bag = () => {
-  const git = guitars.slice(0, 2)
+const Bag = (props) => {
+  console.log(props.bag)
+
+  const createBag = (bag) => {
+    return (bag.lenght > 0 ? 
+    bag.map((guitar, index) => (
+      <GuitarBag
+        key={guitar.id + index + index}
+        guitar={guitar}  
+      />
+    ))
+    : 
+    <h4 className="bag__promo-title">Пока в корзине пусто</h4>)
+  }
 
   return (
     <div className="bag">
@@ -25,12 +37,8 @@ const Bag = () => {
           </p>
         </div>      
         <div className="bag__list">
-          {git.map((guitar, index) => (
-            <GuitarBag
-              key={guitar.id + index + index}
-              guitar={guitar}  
-            />
-          ))}
+          {createBag(props.bag)
+          }
         </div>
         <div className="bag__footer">
           <div>
@@ -53,5 +61,11 @@ const Bag = () => {
 
   )
 }
+
+// const mapStateToProps = (state) => {
+//   return {    
+//     bag: state.bag
+//   }
+// }
 
 export default Bag

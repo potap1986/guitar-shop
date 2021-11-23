@@ -1,30 +1,53 @@
 import React from 'react';
 import './guitar-bag.scss'
 import {formatedNumber} from '../../utils'
+import ActionCreator from '../../store/actions'
+import { connect } from 'react-redux';
 
-const GuitarBag = ({guitar}) => {
+const GuitarBag = (props) => {
   return (
-    <div className="guitar-bag">
-      <button className="guitar-bag__close" aria-label="Удалить">
+    <div className="guitar-bag"
+      onMouseDown={() => {
+        props.onSetGuitar(props.guitar);
+      }}
+    >
+      <button className="guitar-bag__close" onClick={() => props.onPopupDeleteOpen()} aria-label="Удалить">
         <svg width="12" height="12">
           <use xlinkHref="#close" />
         </svg>
       </button>
-      <img className="guitar-bag__image" src={guitar.image} alt={guitar.name} />
+      <img className="guitar-bag__image" src={props.guitar.image} alt={props.guitar.name} />
       <div className="guitar-bag__info">
-        <h3 className="guitar-bag__title">{guitar.type} {guitar.name}</h3>
-        <p>Артикул: {guitar.reference}</p>
-        <p>{guitar.type}, {guitar.stringsCount} струнная</p>
+        <h3 className="guitar-bag__title">{props.guitar.type} {props.guitar.name}</h3>
+        <p>Артикул: {props.guitar.reference}</p>
+        <p>{props.guitar.type}, {props.guitar.stringsCount} струнная</p>
       </div>
-      <div className="guitar-bag__price">{formatedNumber(guitar.price)}  ₽</div>
+      <div className="guitar-bag__price">{formatedNumber(props.guitar.price)}  ₽</div>
       <div className="guitar-bag__buttons">
         <button>-</button>
         <span>1</span>
         <button>+</button>
       </div>
-      <div className="guitar-bag__sum">{formatedNumber(guitar.price)}  ₽</div>
+      <div className="guitar-bag__sum">{formatedNumber(props.guitar.price)}  ₽</div>
     </div>
   )
 }
 
-export default GuitarBag
+const mapStateToProps = (state) => {
+	return {
+		activeGuitar: state.activeGuitar,
+		visibleDelete: state.isPopupDeleteVisible
+	}
+};
+
+const mapDispatchToProps = (dispatch) => ({
+  onSetGuitar: (activeGuitar) => {
+    dispatch(ActionCreator.setActiveGuitar(activeGuitar));
+  },
+  onPopupDeleteOpen: () => {
+    dispatch(ActionCreator.openPopupDelete());
+  },
+});
+
+
+export default connect(mapStateToProps, mapDispatchToProps) (GuitarBag)

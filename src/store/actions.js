@@ -1,13 +1,23 @@
 import {ActionType} from "../const";
 
 const ActionCreator = {
-	openPopupEnter: (isPopupEnterVisible) => ({
-		type: ActionType.OPEN_POPUP_ENTER,
+	openPopupAdd: (isPopupAddVisible) => ({
+		type: ActionType.OPEN_POPUP_ADD,
 		payload: true
 	}),
 
-	closePopupEnter: (isPopupEnterVisible) => ({
-		type: ActionType.CLOSE_POPUP_ENTER,
+	closePopupAdd: (isPopupAddVisible) => ({
+		type: ActionType.CLOSE_POPUP_ADD,
+		payload: false
+	}),
+
+	openPopupDelete: (isPopupDeleteVisible) => ({
+		type: ActionType.OPEN_POPUP_DELETE,
+		payload: true
+	}),
+
+	closePopupDelete: (isPopupDeleteVisible) => ({
+		type: ActionType.CLOSE_POPUP_DELETE,
 		payload: false
 	}),
 	
@@ -21,10 +31,20 @@ const ActionCreator = {
 		payload: false
 	}),
 	
-	changeActiveTab: (activeTab) => ({
-		type: ActionType.CHANGE_ACTIVE_TAB,
-		payload: activeTab
+	setActiveGuitar: (activeGuitar) => ({
+		type: ActionType.SET_ACTIVE_GUITAR,
+		payload: activeGuitar
 	}),
+
+	addBag: (guitar) => ({
+		type: ActionType.ADD_BAG,
+		payload: guitar
+	}),
+
+	deleteBag: (guitar) => ({
+		type: ActionType.DELETE_BAG,
+		payload: guitar
+	})
 };
 
 export default ActionCreator;

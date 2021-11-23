@@ -1,24 +1,30 @@
 import React from 'react';
 import './guitar-catalog.scss'
 import { MAX_RATE } from '../../const';
+import ActionCreator from '../../store/actions'
+import { formatedNumber } from '../../utils';
+import {connect} from 'react-redux'
 
-const GuitarCatalog = ({guitar}) => {
+const GuitarCatalog = (props) => {
   return (
-    <div className="guitar-catalog">
-      <img className="guitar__image" src={guitar.image} alt={guitar.name} />
+    <div className="guitar-catalog"
+    onMouseDown={() => {
+     props.onSetGuitar(props.guitar);
+    }}>
+      <img className="guitar__image" src={props.guitar.image} alt={props.guitar.name} />
       <div className="guitar__rating">
         <div className="guitar-catalog__stars guitar-catalog__stars-active">
-          <span style={{width: `${1 + (guitar.rating) * 100 / MAX_RATE}%`}}></span>
+          <span style={{width: `${1 + (props.guitar.rating) * 100 / MAX_RATE}%`}}></span>
         </div>
-        <span>{guitar.reviewsCount}</span>
+        <span>{props.guitar.reviewsCount}</span>
       </div>
       <div className="guitar-catalog__info">
-        <span>{guitar.name}</span>
-        <span>{guitar.price} ₽</span>
+        <span>{props.guitar.name}</span>
+        <span>{formatedNumber(props.guitar.price)} ₽</span>
       </div>
       <div className="guitar-catalog__buttons">
         <button className="guitar-catalog__button guitar-catalog__button--left">Подробнее</button>
-        <button className="guitar-catalog__button guitar-catalog__button--right">
+        <button className="guitar-catalog__button guitar-catalog__button--right" onClick={() => props.onPopupAddOpen()}>
           <svg width="11" height="11">
             <use xlinkHref="#buy" />
           </svg>
@@ -29,4 +35,20 @@ const GuitarCatalog = ({guitar}) => {
   )
 }
 
-export default GuitarCatalog
+const mapStateToProps = (state) => {
+	return {
+		activeGuitar: state.activeGuitar,
+		visibleAdd: state.isPopupAddVisible
+	}
+};
+
+const mapDispatchToProps = (dispatch) => ({
+  onSetGuitar: (guitar) => {
+    dispatch(ActionCreator.setActiveGuitar(guitar));
+  },
+  onPopupAddOpen: () => {
+    dispatch(ActionCreator.openPopupAdd());
+  },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(GuitarCatalog)
