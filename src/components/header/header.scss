@@ -31,6 +31,18 @@
 	margin-left: auto;
 }
 
+.header__info-quantity {
+	display: inline-block;
+	padding-left: 3px;
+	vertical-align: top;
+	margin-top: -2px;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 10px;
+	line-height: 12px;
+	color: #F20505;
+}
+
 .header__nav-link,
 .header__info-link {
 	text-decoration: none;

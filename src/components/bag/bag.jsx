@@ -1,22 +1,63 @@
 import "./bag.scss"
-import React from 'react';
+import React, {useState} from 'react';
 import GuitarBag from "../guitar-bag/guitar-bag";
 import { formatedNumber } from "../../utils";
-//import {connect} from 'react-redux'
+import { Promo } from "../../const";
 
 const Bag = (props) => {
-  console.log(props.bag)
+  
+  const promoSales = {
+    GITARAHIT: {
+      title: 'GITARAHIT',
+      percent: 10,
+      discount: 0,
+    },
+    SUPERGITARA : {
+      title: 'SUPERGITARA',
+      percent: 0,
+      discount: 700 ,
+    },
+    GITARA2020: {
+      title: 'GITARA2020',
+      percent: 30,
+      discount: 3000 ,
+    }
+  }
+  const promoButton = document.querySelector('.bag__promo-button')
+  const [promo, setPromo] = useState("")
+  const [sum, setSum] = useState(props.bag.totalAmount)
 
   const createBag = (bag) => {
-    return (bag.lenght > 0 ? 
-    bag.map((guitar, index) => (
+    return (bag.guitars.length > 0 ? 
+    bag.guitars.map((guitar, index) => (
       <GuitarBag
         key={guitar.id + index + index}
         guitar={guitar}  
       />
     ))
     : 
-    <h4 className="bag__promo-title">Пока в корзине пусто</h4>)
+    <h4 className="bag__null-title">Пока в корзине пусто</h4>)
+  }
+
+  const handlePromoChange = (evt) => {
+    evt.preventDefault()       
+    setPromo(evt.target.value)
+    setSum(props.bag.totalAmount)   
+  }
+
+  const getPromo = (promo) => {
+    if (promo === Promo.GITARAHIT) {
+      setSum(props.bag.totalAmount * (1 - promoSales.GITARAHIT.percent / 100))
+    }
+    if (promo === Promo.SUPERGITARA) {
+      setSum(props.bag.totalAmount > promoSales.SUPERGITARA.discount ? props.bag.totalAmount - promoSales.SUPERGITARA.discount : props.bag.totalAmount)
+    }
+    if (promo === Promo.GITARA2020) {
+      setSum(props.bag.totalAmount >= (promoSales.SUPERGITARA.discount * 100 / promoSales.SUPERGITARA.percent) ? props.bag.totalAmount - promoSales.SUPERGITARA.discount : props.bag.totalAmount *  (1 - promoSales.GITARA2020.percent / 100))
+    }
+    if (promo !== Promo.GITARAHIT &&  promo !== Promo.SUPERGITARA && promo !== Promo.GITARA2020) {
+      alert( "Промокод не действителен" )
+    }
   }
 
   return (
@@ -46,12 +87,12 @@ const Bag = (props) => {
             <span className="bag__promo-info">Введите свой промокод, если он у вас есть. </span>
             <div>
               <label htmlFor="promo" className="visually-hidden">Промокод</label>
-              <input className="bag__promo__input" id="promo" name="promo" type="text" />
-              <button className="bag__promo-button">Применить купон</button>
+              <input className="bag__promo-input" id="promo" name="promo" type="text" onChange={handlePromoChange} value={promo} />
+              <button onClick={() => getPromo(promo)} className="bag__promo-button">Применить купон</button>
             </div>
           </div>
           <div>
-            <p className="bag__sum">Всего: {formatedNumber(47000)}  ₽</p>
+            <p className="bag__sum">Всего: {formatedNumber(sum)}  ₽</p>
             <button className="bag__button">Оформить заказ</button>
           </div>
         </div>      
@@ -61,11 +102,5 @@ const Bag = (props) => {
 
   )
 }
-
-// const mapStateToProps = (state) => {
-//   return {    
-//     bag: state.bag
-//   }
-// }
 
 export default Bag

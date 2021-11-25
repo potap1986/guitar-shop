@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './header.scss';
 import { NavLink } from 'react-router-dom'
+import { connect } from 'react-redux';
 
-const Header = () => {
+const Header = (props) => {
   const headerNavLinks = [
     {
       name: "Каталог",
@@ -26,6 +27,21 @@ const Header = () => {
     }
   ]
 
+  
+  const [bagQuantity, setBagQuantity] = useState(0)
+
+  const countAmount = (bag) => {
+    let sum = 0
+    if (bag.guitars.length > 0) {
+      bag.guitars.forEach((guitar) => {
+        sum = sum + guitar.amount
+      });
+    }
+    return sum
+  }
+
+  useEffect(() => {setBagQuantity(countAmount(props.bag))}, [props.bag])
+
   const headerInfoLinks = [
     {
       name: "Магазины",
@@ -42,12 +58,12 @@ const Header = () => {
     {
       name: "Корзина",
       svg: "bag",
-      quantity: 0,
+      quantity: bagQuantity,
       to: "/bag",
       exact: "false"
     }
   ]
-  
+
 
   return (
     <header className="header">
@@ -104,5 +120,10 @@ const Header = () => {
   );
 };
 
+const mapStateToProps = (state) => {
+  return {
+    bag: state.bag
+  }
+}
 
-export default Header
+export default connect(mapStateToProps)(Header)

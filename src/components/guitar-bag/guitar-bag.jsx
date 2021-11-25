@@ -24,11 +24,19 @@ const GuitarBag = (props) => {
       </div>
       <div className="guitar-bag__price">{formatedNumber(props.guitar.price)}  ₽</div>
       <div className="guitar-bag__buttons">
-        <button>-</button>
-        <span>1</span>
-        <button>+</button>
+        <button 
+          onClick={() => props.onDeleteBag(props.guitar)}
+        >
+          -
+        </button>
+        <span>{props.guitar.amount}</span>
+        <button 
+          onClick={() => props.onAddBag(props.guitar)}
+        >
+          +
+        </button>
       </div>
-      <div className="guitar-bag__sum">{formatedNumber(props.guitar.price)}  ₽</div>
+      <div className="guitar-bag__sum">{formatedNumber(props.guitar.price * props.guitar.amount)}  ₽</div>
     </div>
   )
 }
@@ -46,6 +54,12 @@ const mapDispatchToProps = (dispatch) => ({
   },
   onPopupDeleteOpen: () => {
     dispatch(ActionCreator.openPopupDelete());
+  },
+  onDeleteBag: (guitar) => {
+    dispatch(ActionCreator.deleteBag(guitar));
+  },
+  onAddBag: (guitar) => {
+    dispatch(ActionCreator.addBag(guitar));
   },
 });
 

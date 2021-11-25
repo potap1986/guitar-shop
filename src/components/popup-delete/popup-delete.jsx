@@ -56,7 +56,14 @@ class PopupDelete extends Component {
                     <div>Цена: {formatedNumber(guitar.price)}  ₽</div>
                   </div>
                   <div className="popup-delete__buttons">
-                    <button className="popup-delete__button popup-delete__button--orange">Удалить товар</button>
+                    <button 
+                      className="popup-delete__button popup-delete__button--orange"
+                      onMouseDown={() => {
+                      this.props.onDeleteItemBag(this.props.guitar);
+                      this.props.onPopupDeleteClose()
+                      }}
+                    >
+                      Удалить товар</button>
                     <button className="popup-delete__button  popup-delete__button--white" onClick={this.props.onPopupDeleteClose}>Продолжить покупки</button>
                   </div>
                 </div>
@@ -84,6 +91,9 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => ({
   onPopupDeleteClose: () => {
     dispatch(ActionCreator.closePopupDelete());
+  },
+  onDeleteItemBag: (guitar) => {
+    dispatch(ActionCreator.deleteItemBag(guitar));
   },
 });
 

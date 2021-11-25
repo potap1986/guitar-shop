@@ -44,7 +44,31 @@ const ActionCreator = {
 	deleteBag: (guitar) => ({
 		type: ActionType.DELETE_BAG,
 		payload: guitar
-	})
+	}),
+
+	deleteItemBag: (guitar) => ({
+		type: ActionType.DELETE_ITEM_BAG,
+		payload: guitar
+	}),
+
+	setSort: (sort) => ({
+		type: ActionType.SET_SORT,
+		payload: sort
+	}),
+
+	resetSort: () => ({
+		type: ActionType.RESET_SORT
+	}),
+
+	setSortType: (sortType) => ({
+		type: ActionType.SET_SORT_TYPE,
+		payload: sortType
+	}),
+
+	resetSortType: () => ({
+		type: ActionType.RESET_SORT_TYPE
+	}),
+
 };
 
 export default ActionCreator;

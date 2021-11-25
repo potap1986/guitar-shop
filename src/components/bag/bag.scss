@@ -40,6 +40,21 @@
   justify-content: space-between;
 }
 
+.bag__null-title {
+  padding: 0;
+  margin: 0;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 15px;
+  letter-spacing: 0.05em;
+  color: #000000;
+  margin-bottom: 9px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  text-align: center;
+  border-bottom: 0.7px solid #DDDADA;
+}
+
 .bag__promo-title {
   padding: 0;
   margin: 0;
@@ -60,7 +75,7 @@
   margin-bottom: 20px;
 }
 
-.bag__promo__input {
+.bag__promo-input {
   width: 40%;
   font-size: 16px;
   line-height: 15px;

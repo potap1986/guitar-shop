@@ -11,6 +11,7 @@ const guitars = [
     stringsCount: StringsCount.SEVEN,
     price: 17500,
     image: "../img/electro-1.png",
+    amount: 1,
   },
   {
     id: 2,
@@ -22,6 +23,7 @@ const guitars = [
     stringsCount: StringsCount.SEVEN,
     price: 29500,
     image: "../img/electro-2.png",
+    amount: 1,
   },
   {
     id: 3,
@@ -33,6 +35,7 @@ const guitars = [
     stringsCount: StringsCount.FOUR,
     price: 6800,
     image: "../img/ukulele-1.png",
+    amount: 1,
   },
   {
     id: 4,
@@ -44,6 +47,7 @@ const guitars = [
     stringsCount: StringsCount.SIX,
     price: 30000,
     image: "../img/electro-3.png",
+    amount: 1,
   },
   {
     id: 5,
@@ -55,6 +59,7 @@ const guitars = [
     stringsCount: StringsCount.SEVEN,
     price: 3500,
     image: "../img/ukulele-2.png",
+    amount: 1,
   },
   {
     id: 6,
@@ -66,6 +71,7 @@ const guitars = [
     stringsCount: StringsCount.SIX,
     price: 15300,
     image: "../img/electro-1.png",
+    amount: 1,
   },
   {
     id: 7,
@@ -77,6 +83,7 @@ const guitars = [
     stringsCount: StringsCount.FOUR,
     price: 2200,
     image: "../img/ukulele-1.png",
+    amount: 1,
   },
   {
     id: 8,
@@ -88,6 +95,7 @@ const guitars = [
     stringsCount: StringsCount.FOUR,
     price: 30000,
     image: "../img/electro-4.png",
+    amount: 1,
   },
   {
     id: 9,
@@ -99,6 +107,7 @@ const guitars = [
     stringsCount: StringsCount.SEVEN,
     price: 1700,
     image: "../img/ukulele-2.png",
+    amount: 1,
   },
   {
     id: 10,
@@ -110,6 +119,7 @@ const guitars = [
     stringsCount: StringsCount.FOUR,
     price: 23000,
     image: "../img/electro-1.png",
+    amount: 1,
   },
   {
     id: 11,
@@ -121,6 +131,7 @@ const guitars = [
     stringsCount: StringsCount.FOUR,
     price: 18700,
     image: "../img/electro-1.png",
+    amount: 1,
   },
   {
     id: 12,
@@ -132,6 +143,7 @@ const guitars = [
     stringsCount: StringsCount.SEVEN,
     price: 35000,
     image: "../img/electro-1.png",
+    amount: 1,
   },
   {
     id: 13,
@@ -143,6 +155,7 @@ const guitars = [
     stringsCount: StringsCount.SIX,
     price: 14900,
     image: "../img/electro-1.png",
+    amount: 1,
   },
   {
     id: 14,
@@ -154,6 +167,7 @@ const guitars = [
     stringsCount: StringsCount.SIX,
     price: 7600,
     image: "../img/ukulele-2.png",
+    amount: 1,
   },
   {
     id: 15,
@@ -165,6 +179,7 @@ const guitars = [
     stringsCount: StringsCount.SIX,
     price: 6500,
     image: "../img/ukulele-2.png",
+    amount: 1,
   },
   {
     id: 16,
@@ -176,6 +191,7 @@ const guitars = [
     stringsCount: StringsCount.SEVEN,
     price: 12000,
     image: "../img/ukulele-2.png",
+    amount: 1,
   },
   {
     id: 17,
@@ -187,6 +203,7 @@ const guitars = [
     stringsCount: StringsCount.SEVEN,
     price: 9900,
     image: "../img/ukulele-2.png",
+    amount: 1,
   },
   {
     id: 18,
@@ -198,6 +215,7 @@ const guitars = [
     stringsCount: StringsCount.TWELVE,
     price: 8900,
     image: "../img/ukulele-2.png",
+    amount: 1,
   },
   {
     id: 19,
@@ -209,6 +227,7 @@ const guitars = [
     stringsCount: StringsCount.TWELVE,
     price: 10500,
     image: "../img/ukulele-2.png",
+    amount: 1,
   },
   {
     id: 20,
@@ -220,6 +239,7 @@ const guitars = [
     stringsCount: StringsCount.SIX,
     price: 13300,
     image: "../img/ukulele-2.png",
+    amount: 1,
   },
   {
     id: 21,
@@ -231,6 +251,7 @@ const guitars = [
     stringsCount: StringsCount.FOUR,
     price: 4800,
     image: "../img/ukulele-1.png",
+    amount: 1,
   },
   {
     id: 22,
@@ -242,6 +263,7 @@ const guitars = [
     stringsCount: StringsCount.FOUR,
     price: 1900,
     image: "../img/ukulele-1.png",
+    amount: 1,
   },
   {
     id: 23,
@@ -253,6 +275,7 @@ const guitars = [
     stringsCount: StringsCount.FOUR,
     price: 2500,
     image: "../img/ukulele-1.png",
+    amount: 1,
   },
   {
     id: 24,
@@ -264,6 +287,7 @@ const guitars = [
     stringsCount: StringsCount.FOUR,
     price: 3800,
     image: "../img/ukulele-1.png",
+    amount: 1,
   },
   {
     id: 25,
@@ -275,6 +299,7 @@ const guitars = [
     stringsCount: StringsCount.FOUR,
     price: 4100,
     image: "../img/ukulele-1.png",
+    amount: 1,
   },
   {
     id: 26,
@@ -286,6 +311,7 @@ const guitars = [
     stringsCount: StringsCount.FOUR,
     price: 2700,
     image: "../img/ukulele-1.png",
+    amount: 1,
   },
   {
     id: 27,
@@ -297,25 +323,8 @@ const guitars = [
     stringsCount: StringsCount.FOUR,
     price: 6700,
     image: "../img/ukulele-1.png",
+    amount: 1,
   },
 ];
 
-const Promo = {
-  GITARAHIT: {
-    title: 'GITARAHIT ',
-    percent: 10,
-    discount: 0,
-  },
-  SUPERGITARA : {
-    title: 'SUPERGITARA ',
-    percent: 0,
-    discount: 700 ,
-  },
-  GITARA2020: {
-    title: 'GITARA2020 ',
-    percent: 30,
-    discount: 3000 ,
-  }
-}
-
-export {guitars, Promo}
+export {guitars}

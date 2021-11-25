@@ -36,11 +36,13 @@
   background: inherit;
   border: none;
   margin-right: 15px;
+  z-index: 1;
 
   &--to-small {
 
     svg {
       transform: rotate(180deg);
+      z-index: -1;
     }
   }
 }

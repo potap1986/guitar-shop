@@ -1,13 +1,19 @@
-import {ActionType} from "../const";
+import {ActionType, Sorting, SortType} from "../const";
 import {guitars} from '../data'
-
+import {deletedItemBag, addedBag, deletedBag} from '../utils'
 const initialState = {
 	guitars: guitars,
 	isPopupAddVisible: false,
 	isPopupDeleteVisible: false,
 	isPopupInfoVisible: false,
 	activeGuitar: null,
-	bag: []
+	sort: Sorting.TO_MORE,
+	sortType: SortType.PRICE,
+	activeSorting: false,
+	bag: {
+		guitars: [],
+		totalAmount: 0,
+	}
 }
 
 const reducer = (state = initialState, action) => {
@@ -47,16 +53,45 @@ const reducer = (state = initialState, action) => {
 				...state,
 				activeGuitar: action.payload
 			};
-		case ActionType.ADD_BAG:
+		case ActionType.DELETE_ITEM_BAG: 
 			return {
 				...state,
-				bag: [action.payload, ...state.bag]
+				bag: deletedItemBag(state, action.payload)
 			};
-		case ActionType.DELETE_BAG:
+		case ActionType.ADD_BAG:
+				return {
+					...state,
+					bag: addedBag(state, action.payload)
+			};
+		case ActionType.DELETE_BAG: 
 			return {
 				...state,
-				bag: state.bag.delete(action.payload)
-			}
+				bag: deletedBag(state, action.payload)
+		  };
+		case ActionType.RESET_SORT_TYPE:
+			return {
+				...state,
+				sortType: SortType.PRICE,
+				activeSorting: false
+			};
+		case ActionType.SET_SORT_TYPE:
+			return {
+				...state,
+				sortType: action.payload,
+				activeSorting: true
+			};
+		case ActionType.RESET_SORT:
+			return {
+				...state,
+				sort: Sorting.TO_MORE,
+				activeSorting: false
+			};
+		case ActionType.SET_SORT:
+			return {
+				...state,
+				sort: action.payload,
+				activeSorting: true
+			};
 		default:
 			return state;
 	}
