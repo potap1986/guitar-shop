@@ -36,6 +36,59 @@
   }
 }
 
+.button {
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    opacity: 0.7;
+  }
+
+  &:active {
+    opacity: 0.5;
+  }
+
+  &--white {
+
+    &:hover,
+    &:focus {
+      opacity: 0.7;
+    }
+
+    &:active {
+      opacity: 0.5;
+    }
+  }
+
+  &--gray {
+
+    &:hover,
+    &:focus {
+      background: #585757;
+      opacity: 1;
+    }
+
+    &:active {
+      background: #9F9E9E;
+      opacity: 1;
+    }
+  }
+
+  &--orange {
+
+    &:hover,
+    &:focus {
+      background: #FFA839;
+      opacity: 1;
+    }
+
+    &:active {
+      background: #DA8B26;
+      opacity: 1;
+    }
+  }
+}
+
 body {
   font-family: "Droid Sans", "Arial", sans-serif;
   margin: 0;

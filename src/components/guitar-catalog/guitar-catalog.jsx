@@ -4,6 +4,7 @@ import { MAX_RATE } from '../../const';
 import ActionCreator from '../../store/actions'
 import { formatedNumber } from '../../utils';
 import {connect} from 'react-redux'
+import PropTypes from "prop-types";
 
 const GuitarCatalog = (props) => {
   return (
@@ -23,8 +24,8 @@ const GuitarCatalog = (props) => {
         <span>{formatedNumber(props.guitar.price)} ₽</span>
       </div>
       <div className="guitar-catalog__buttons">
-        <button className="guitar-catalog__button guitar-catalog__button--left">Подробнее</button>
-        <button className="guitar-catalog__button guitar-catalog__button--right" onClick={() => props.onPopupAddOpen()}>
+        <button className="guitar-catalog__button guitar-catalog__button--left button button--gray">Подробнее</button>
+        <button className="guitar-catalog__button guitar-catalog__button--right button button orange" onClick={() => props.onPopupAddOpen()}>
           <svg width="11" height="11">
             <use xlinkHref="#buy" />
           </svg>
@@ -33,6 +34,37 @@ const GuitarCatalog = (props) => {
       </div>
     </div>
   )
+}
+
+
+GuitarCatalog.propTypes = {
+	visibleAdd: PropTypes.bool.isRequired,
+  activeGuitar: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    reference:  PropTypes.string.isRequired,
+    name:  PropTypes.string.isRequired,
+    type:  PropTypes.string.isRequired,
+    reviewsCount: PropTypes.number.isRequired,
+    rating: PropTypes.number.isRequired,
+    stringsCount: PropTypes.number.isRequired,
+    price: PropTypes.number.isRequired,
+    image:  PropTypes.string.isRequired,
+    amount: PropTypes.number.isRequired,
+  }),
+  guitar: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    reference:  PropTypes.string.isRequired,
+    name:  PropTypes.string.isRequired,
+    type:  PropTypes.string.isRequired,
+    reviewsCount: PropTypes.number.isRequired,
+    rating: PropTypes.number.isRequired,
+    stringsCount: PropTypes.number.isRequired,
+    price: PropTypes.number.isRequired,
+    image:  PropTypes.string.isRequired,
+    amount: PropTypes.number.isRequired,
+  }),
+  onSetGuitar: PropTypes.func.isRequired,
+  onPopupAddOpen: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = (state) => {

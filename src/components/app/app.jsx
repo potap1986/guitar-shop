@@ -54,6 +54,23 @@ App.propTypes = {
 	visibleAdd: PropTypes.bool.isRequired,
 	visibleDelete: PropTypes.bool.isRequired,
 	visibleInfo: PropTypes.bool.isRequired,
+  bag: PropTypes.shape({
+    guitars: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        reference:  PropTypes.string.isRequired,
+        name:  PropTypes.string.isRequired,
+        type:  PropTypes.string.isRequired,
+        reviewsCount: PropTypes.number.isRequired,
+        rating: PropTypes.number.isRequired,
+        stringsCount: PropTypes.number.isRequired,
+        price: PropTypes.number.isRequired,
+        image:  PropTypes.string.isRequired,
+        amount: PropTypes.number.isRequired,
+      })
+    ).isRequired,
+    totalAmount: PropTypes.number.isRequired,
+  }).isRequired
 }
 
 

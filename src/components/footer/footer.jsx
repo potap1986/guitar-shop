@@ -142,20 +142,22 @@ const Footer = () => {
               <h2 className="footer__title">Контакты</h2>
               <p className="footer__info"
               >
-                г. Санкт-Петербург, м. Невский проспект, ул. Казанская 6. 
+               <span>г. Санкт-Петербург,</span> 
+               <span>м. Невский проспект,</span>  
+               <span>ул. Казанская 6.</span>  
                 
-                <svg width="9" height="9">
+               <span><svg width="9" height="9">
                   <use xlinkHref="#phone" />
                 </svg>
-                8-812-500-50-50
+                8-812-500-50-50</span> 
               </p>           
               <p className="footer__info"
               >
-                Режим работы: 
-                <svg width="9" height="9">
+               <span>Режим работы:</span> 
+               <span><svg width="9" height="9">
                   <use xlinkHref="#clock" />
-                </svg>
-                с 11:00 до 20:00, без выходных.
+                </svg>с 11:00 до 20:00,</span>
+                <span> без выходных.</span>
               </p>    
             </li>
           </ul>

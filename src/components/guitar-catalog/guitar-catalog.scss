@@ -4,7 +4,7 @@
   margin-right: 20px;
   margin-bottom: 30px;
   border: 1px solid #DDDADA;
-  padding: 16px 14px 20px;
+  padding: 12px 11px 20px;
   text-align: center;
 
   &:nth-child(3n+3) {
@@ -13,20 +13,21 @@
 }
 
 .guitar__image {
-  margin-bottom: 8px;
+  margin-bottom: 2px;
 }
 
 .guitar__rating {
   display: flex;
-  flex-direction: start;
   padding-right: 30px;
-  margin-bottom: 7px;
+  margin-bottom: 3px;
 
   >span {
+    display: block;
+    min-width: 1px;
     font-weight: normal;
     font-size: 10px;
     line-height: 15px;
-    text-align: center;
+    text-align: right;
     letter-spacing: 0.1em;
     color: #9F9E9E;
     padding-top: 2px;
@@ -83,6 +84,7 @@
 .guitar-catalog__info {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   margin-bottom: 16px;
 
   span {
@@ -101,7 +103,9 @@
 }
 
 .guitar-catalog__button {
+  width: 46%;
   border: none;
+  text-align: center;
   border-radius: 2px;
   font-weight: bold;
   font-size: 12px;
@@ -109,6 +113,11 @@
   letter-spacing: 0.02em;
   color: #FFFFFF;
   padding: 4px 9px;
+
+  svg {
+    margin-right: 8px;
+    display: inline-block;
+  }
 
   &--left {
     background: #C1C1C1;

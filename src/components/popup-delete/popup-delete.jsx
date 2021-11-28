@@ -1,10 +1,10 @@
 import React, { Component }  from 'react';
+import PropTypes from "prop-types";
 import './popup-delete.scss'
 import FocusTrap from 'focus-trap-react'
 import ScrollLock from 'react-scrolllock'
 import { connect } from 'react-redux';
 import { formatedNumber } from '../../utils';
-import PropTypes from "prop-types";
 import ActionCreator from '../../store/actions'
 
 class PopupDelete extends Component {
@@ -39,7 +39,7 @@ class PopupDelete extends Component {
               <div className="popup-delete__wrapper">
                 <h4 className="popup-delete__title">Удалить этот товар?</h4>
                 <button
-                  className="popup-delete__close" 
+                  className="popup-delete__close button" 
                   onClick={this.props.onPopupDeleteClose}
                   aria-label="Закрыть окно"
                 >
@@ -57,14 +57,14 @@ class PopupDelete extends Component {
                   </div>
                   <div className="popup-delete__buttons">
                     <button 
-                      className="popup-delete__button popup-delete__button--orange"
+                      className="popup-delete__button popup-delete__button--orange button button--orange"
                       onMouseDown={() => {
                       this.props.onDeleteItemBag(this.props.guitar);
                       this.props.onPopupDeleteClose()
                       }}
                     >
                       Удалить товар</button>
-                    <button className="popup-delete__button  popup-delete__button--white" onClick={this.props.onPopupDeleteClose}>Продолжить покупки</button>
+                    <button className="popup-delete__button  popup-delete__button--white button button--white" onClick={this.props.onPopupDeleteClose}>Продолжить покупки</button>
                   </div>
                 </div>
               </div>
@@ -77,7 +77,20 @@ class PopupDelete extends Component {
 
 PopupDelete.propTypes = {
 	visibleDelete: PropTypes.bool.isRequired,
-	onPopupDeleteClose: PropTypes.func.isRequired
+	onPopupDeleteClose: PropTypes.func.isRequired,
+	onDeleteItemBag: PropTypes.func.isRequired,
+  guitar: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    reference:  PropTypes.string.isRequired,
+    name:  PropTypes.string.isRequired,
+    type:  PropTypes.string.isRequired,
+    reviewsCount: PropTypes.number.isRequired,
+    rating: PropTypes.number.isRequired,
+    stringsCount: PropTypes.number.isRequired,
+    price: PropTypes.number.isRequired,
+    image:  PropTypes.string.isRequired,
+    amount: PropTypes.number.isRequired,
+  }),
 }
 
 

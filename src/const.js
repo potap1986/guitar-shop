@@ -7,13 +7,14 @@ const ActionType = {
   OPEN_POPUP_DELETE: 'openPopupDelete',
   CLOSE_POPUP_DELETE: 'closePopupDelete',
   SET_ACTIVE_GUITAR: 'setActiveGuitar',
+  SET_ACTIVE_PAGE: 'setActivePage',
   ADD_BAG: 'addBag',
   DELETE_BAG: 'deleteBag',
   DELETE_ITEM_BAG: 'deleteItemBag',
-  SET_SORT_TYPE: `SET_SORT_TYPE`,
-  RESET_SORT_TYPE: `RESET_SORT_TYPE`,
-  SET_SORT: `SET_SORT`,
-  RESET_SORT: `RESET_SORT`,
+  SET_SORT_TYPE: `setSortType`,
+  RESET_SORT_TYPE: `resetSortType`,
+  SET_SORT: `setSort`,
+  RESET_SORT: `resetSort`,
 }
 
 const GuitarType = {
@@ -39,7 +40,7 @@ const MAX_RATE = 5
 
 const SortType = {
   PRICE: "price",
-  POPULAR: "popular"
+  REVIEWS_COUNT: "reviewsCount"
 }
 
 const Sorting = {
@@ -47,4 +48,12 @@ const Sorting = {
   TO_MORE: "toMore"
 }
 
-export {ActionType, GuitarType, StringsCount, MAX_RATE, Promo, Sorting, SortType}
+const GUITARS_ON_PAGE = 9
+
+const Page = {
+  ONE: 1,
+  TWO: 2,
+  THREE: 3
+}
+
+export {ActionType, GuitarType, StringsCount, MAX_RATE, Promo, Sorting, SortType, GUITARS_ON_PAGE, Page}

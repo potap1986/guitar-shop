@@ -2,35 +2,33 @@ import React from 'react';
 import { connect } from 'react-redux';
 import './sort.scss'
 import ActionCreator from '../../store/actions'
-import { Sorting, SortType } from '../../const';
-import { element } from 'prop-types';
+import {SortType, Sorting} from '../../const'
+import PropTypes from "prop-types";
 
 const Sort = (props) => {
   const onSortHandler = (evt) => {
-    const buttonSortType = evt.target.closest(".sort__type")
-    // evt.preventDefault()    
-    // props.onSetSort(evt.target.id)
-    console.log(buttonSortType)
+    evt.preventDefault()   
+    const buttonSort = evt.target.closest(".sort__button") 
+    props.onSetSort(buttonSort.id)
   }
-  const onSortTypeHandler = (evt) => {    
-    const buttonSortType = evt.target.closest(".sort__button")
-    // evt.preventDefault()    
-    // props.onSetSortType(evt.target.id)
-    console.log(evt.target, buttonSortType)
+  const onSortTypeHandler = (evt) => { 
+    evt.preventDefault()     
+    const buttonSortType = evt.target.closest(".sort__type")  
+    props.onSetSortType(buttonSortType.id)
   }
 
   return (
     <div className="sort">
       <h2 className="sort__title">Сортировать:</h2>
-      <button onClick={onSortTypeHandler} id="price" className="sort__type">по цене</button>
-      <button onClick={onSortTypeHandler} id="popular" className="sort__type">по популярности</button>
+      <button onClick={onSortTypeHandler} id="price" className={"sort__type button" + (props.activeSorting && props.sortType === SortType.PRICE ? " sort__type--active" : "")}>по цене</button>
+      <button onClick={onSortTypeHandler} id="reviewsCount" className={"sort__type button" + (props.activeSorting && props.sortType === SortType.REVIEWS_COUNT ? " sort__type--active" : "")}>по популярности</button>
       <div className="sort__buttons">
-        <button onClick={onSortHandler} className="sort__button sort__button--to-more" id="toMore" aria-label="От меньшего к большему">
+        <button onClick={onSortHandler} className={"sort__button sort__button--to-more button" + (props.activeSorting && props.sort === Sorting.TO_MORE ? " sort__button--active" : "")} id="toMore" aria-label="От меньшего к большему">
           <svg width="14" height="11">
             <use xlinkHref="#triangle" />
           </svg>
         </button>
-        <button  onClick={onSortHandler} className="sort__button sort__button--to-small" id="toSmall" aria-label="От большего к меньшему">
+        <button  onClick={onSortHandler} className={"sort__button sort__button--to-small button" + (props.activeSorting && props.sort === Sorting.TO_SMALL ? " sort__button--active" : "")} id="toSmall" aria-label="От большего к меньшему">
           <svg width="14" height="11">
             <use xlinkHref="#triangle" />
           </svg>
@@ -38,6 +36,14 @@ const Sort = (props) => {
       </div>
     </div>
   )
+}
+
+Sort.propTypes = {
+  sort: PropTypes.string.isRequired,
+  sortType: PropTypes.string.isRequired,
+  activeSorting: PropTypes.bool.isRequired,
+  onSetSortType: PropTypes.func.isRequired,
+  onSetSort: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = (state) => {
@@ -50,11 +56,11 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => ({
   onSetSort: (sort) => {
-    dispatch(ActionCreator.setSort(sort))
+    dispatch(ActionCreator.setSort(sort));
   },
   onSetSortType: (sortType) => {
-    dispatch(ActionCreator.setSortType(sortType))
+    dispatch(ActionCreator.setSortType(sortType));
   },
-})
+});
 
-export default connect(mapDispatchToProps, mapStateToProps)(Sort)
+export default connect(mapStateToProps, mapDispatchToProps)(Sort)

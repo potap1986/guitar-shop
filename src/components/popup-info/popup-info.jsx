@@ -28,7 +28,7 @@ class PopupInfo extends Component {
     document.addEventListener('keydown', this.escPressHandler);
 
     return (
-      <FocusTrap>
+      <FocusTrap >
       <div className="popup-info"
         onClick={(evt) => {
           if (!evt.target.closest('.popup-info__wrapper')) {
@@ -38,7 +38,7 @@ class PopupInfo extends Component {
           <div className="popup-info__wrapper">
             <h4 className="popup-info__title">Товар успешно добавлен в корзину</h4>
             <button 
-              className="popup-info__close" 
+              className="popup-info__close button" 
               onClick={this.props.onPopupInfoClose} 
               aria-label="Закрыть окно"
             >
@@ -47,10 +47,10 @@ class PopupInfo extends Component {
               </svg>
             </button>
             <div className="popup-info__buttons">
-              <NavLink className="popup-info__button popup-info__button--orange" to="/bag" exact="false">
+              <NavLink onClick={this.props.onPopupInfoClose} className="popup-info__button popup-info__button--orange button button--orange" to="/bag" exact="false">
                 Перейти в корзину
               </NavLink>
-              <button className="popup-info__button popup-info__button--white" onClick={this.props.onPopupInfoClose} >Продолжить покупки</button>
+              <button className="popup-info__button popup-info__button--white button button--white" onClick={this.props.onPopupInfoClose} >Продолжить покупки</button>
             </div>
           </div>
         </ScrollLock>

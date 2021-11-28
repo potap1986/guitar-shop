@@ -15,8 +15,9 @@
 .popup-delete__wrapper {
   position: relative;
   padding: 30px 50px;
+  padding-bottom: 23px;
   z-index: 100;
-  width: 70%;
+  width: 73%;
   background: #FFFFFF;
   box-shadow: 0px 5px 6px rgba(63, 63, 63, 0.2);
   border-radius: 4px;
@@ -32,15 +33,15 @@
   font-weight: bold;
   font-size: 18px;
   line-height: 15px;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.04em;
   color: #474747;
 }
 
 .popup-delete__close {
   cursor: pointer;
   position: absolute;
-  top: 23px;
-  right: 23px;
+  top: 22px;
+  right: 20px;
   border: none;
   background-color: inherit;
 
@@ -57,7 +58,8 @@
 
 .popup-delete__image {
   height: 128px;
-  margin-right: 41px;
+  margin-right: 46px;
+  margin-left: 9px;
 }
 
 .popup-delete__info {
@@ -111,7 +113,7 @@
   line-height: 15px;
   letter-spacing: 0.05em;
   border-radius: 2px;
-  padding: 15px 11px;
+  padding: 14px 19px;
   text-align: center;
 
   &:nth-last-of-type() {

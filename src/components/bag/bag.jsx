@@ -3,6 +3,7 @@ import React, {useState} from 'react';
 import GuitarBag from "../guitar-bag/guitar-bag";
 import { formatedNumber } from "../../utils";
 import { Promo } from "../../const";
+import PropTypes from "prop-types";
 
 const Bag = (props) => {
   
@@ -23,7 +24,6 @@ const Bag = (props) => {
       discount: 3000 ,
     }
   }
-  const promoButton = document.querySelector('.bag__promo-button')
   const [promo, setPromo] = useState("")
   const [sum, setSum] = useState(props.bag.totalAmount)
 
@@ -88,12 +88,12 @@ const Bag = (props) => {
             <div>
               <label htmlFor="promo" className="visually-hidden">Промокод</label>
               <input className="bag__promo-input" id="promo" name="promo" type="text" onChange={handlePromoChange} value={promo} />
-              <button onClick={() => getPromo(promo)} className="bag__promo-button">Применить купон</button>
+              <button onClick={() => getPromo(promo)} className="bag__promo-button button button--gray">Применить купон</button>
             </div>
           </div>
           <div>
             <p className="bag__sum">Всего: {formatedNumber(sum)}  ₽</p>
-            <button className="bag__button">Оформить заказ</button>
+            <button className="bag__button button button--orange">Оформить заказ</button>
           </div>
         </div>      
 
@@ -101,6 +101,26 @@ const Bag = (props) => {
     </div>
 
   )
+}
+
+Bag.propTypes = {	
+  bag: PropTypes.shape({
+    guitars: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        reference:  PropTypes.string.isRequired,
+        name:  PropTypes.string.isRequired,
+        type:  PropTypes.string.isRequired,
+        reviewsCount: PropTypes.number.isRequired,
+        rating: PropTypes.number.isRequired,
+        stringsCount: PropTypes.number.isRequired,
+        price: PropTypes.number.isRequired,
+        image:  PropTypes.string.isRequired,
+        amount: PropTypes.number.isRequired,
+      })
+    ).isRequired,
+    totalAmount: PropTypes.number.isRequired,
+  }).isRequired
 }
 
 export default Bag

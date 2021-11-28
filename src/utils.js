@@ -1,3 +1,5 @@
+import {Sorting, StringsCount, GuitarType} from './const'
+
 const formatedNumber = (num) => {
   let number = String(Math.round(num));
   let result = ""
@@ -75,5 +77,58 @@ const deletedBag = (state, action) => {
   };
 }
 
+const getSorting = (guitars, sortType, sort, active) => {
+  if (active) {
+    switch (sort) {
+      case Sorting.TO_MORE:
+        return guitars.slice().sort((a, b) => a[sortType] - b[sortType]);
+      case Sorting.TO_SMALL:
+        return guitars.slice().sort((a, b) => b[sortType] - a[sortType]);
+      default:
+        return guitars.slice();
+    }
+  } else {
+    return guitars.slice()
+  }
+};
 
-export {formatedNumber, deletedItemBag, addedBag, deletedBag}
+const getFiltered = (guitars, filter) => {
+  const filteredGuitars = []
+  const types = Object.keys(filter.type)
+  const typesOn = Object.values(filter.type)
+  const strings = Object.keys(filter.string)
+  const stringsOn = Object.values(filter.string)
+  guitars.forEach((guitar) => {
+    if (guitar.price >= filter.price.min && guitar.price <= filter.price.max) {
+      if (((guitar.type === GuitarType[types[0].toUpperCase()]) && typesOn[0]) || 
+          ((guitar.type === GuitarType[types[1].toUpperCase()]) && typesOn[1]) ||
+          ((guitar.type === GuitarType[types[2].toUpperCase()]) && typesOn[2]) ||
+          ( !typesOn[0] && !typesOn[1] && !typesOn[2])
+      ) {
+        if (((guitar.stringsCount === StringsCount[strings[0].toUpperCase()]) && stringsOn[0]) || 
+            ((guitar.stringsCount === StringsCount[strings[1].toUpperCase()]) && stringsOn[1]) ||
+            ((guitar.stringsCount === StringsCount[strings[2].toUpperCase()]) && stringsOn[2]) ||
+            ((guitar.stringsCount === StringsCount[strings[3].toUpperCase()]) && stringsOn[3]) ||
+            ( !stringsOn[0] && !stringsOn[1] && !stringsOn[2] && !stringsOn[3])
+        ) {
+
+          filteredGuitars.push(guitar)
+        }
+      }
+    }
+  })
+  return filteredGuitars
+}
+
+const getMinPrice = (guitars) => {
+  const sortedGuitars  =  guitars.slice().sort((a, b) => a.price - b.price);
+  return sortedGuitars[0].price
+}
+
+const getMaxPrice = (guitars) => {
+  const sortedGuitars  =  guitars.slice().sort((a, b) => b.price - a.price);
+  return sortedGuitars[0].price
+}
+
+
+export {formatedNumber, deletedItemBag, addedBag, deletedBag, getSorting, getMaxPrice, getMinPrice, getFiltered}

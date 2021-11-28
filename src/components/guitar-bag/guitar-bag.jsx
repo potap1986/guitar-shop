@@ -3,6 +3,7 @@ import './guitar-bag.scss'
 import {formatedNumber} from '../../utils'
 import ActionCreator from '../../store/actions'
 import { connect } from 'react-redux';
+import PropTypes from "prop-types";
 
 const GuitarBag = (props) => {
   return (
@@ -11,7 +12,7 @@ const GuitarBag = (props) => {
         props.onSetGuitar(props.guitar);
       }}
     >
-      <button className="guitar-bag__close" onClick={() => props.onPopupDeleteOpen()} aria-label="Удалить">
+      <button className="guitar-bag__close button" onClick={() => props.onPopupDeleteOpen()} aria-label="Удалить">
         <svg width="12" height="12">
           <use xlinkHref="#close" />
         </svg>
@@ -24,13 +25,13 @@ const GuitarBag = (props) => {
       </div>
       <div className="guitar-bag__price">{formatedNumber(props.guitar.price)}  ₽</div>
       <div className="guitar-bag__buttons">
-        <button 
+        <button className="button"
           onClick={() => props.onDeleteBag(props.guitar)}
         >
           -
         </button>
         <span>{props.guitar.amount}</span>
-        <button 
+        <button className="button"
           onClick={() => props.onAddBag(props.guitar)}
         >
           +
@@ -39,6 +40,38 @@ const GuitarBag = (props) => {
       <div className="guitar-bag__sum">{formatedNumber(props.guitar.price * props.guitar.amount)}  ₽</div>
     </div>
   )
+}
+
+GuitarBag.propTypes = {
+	visibleDelete: PropTypes.bool.isRequired,
+  activeGuitar: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    reference:  PropTypes.string.isRequired,
+    name:  PropTypes.string.isRequired,
+    type:  PropTypes.string.isRequired,
+    reviewsCount: PropTypes.number.isRequired,
+    rating: PropTypes.number.isRequired,
+    stringsCount: PropTypes.number.isRequired,
+    price: PropTypes.number.isRequired,
+    image:  PropTypes.string.isRequired,
+    amount: PropTypes.number.isRequired,
+  }),
+  guitar: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    reference:  PropTypes.string.isRequired,
+    name:  PropTypes.string.isRequired,
+    type:  PropTypes.string.isRequired,
+    reviewsCount: PropTypes.number.isRequired,
+    rating: PropTypes.number.isRequired,
+    stringsCount: PropTypes.number.isRequired,
+    price: PropTypes.number.isRequired,
+    image:  PropTypes.string.isRequired,
+    amount: PropTypes.number.isRequired,
+  }),
+  onSetGuitar: PropTypes.func.isRequired,
+  onPopupDeleteOpen: PropTypes.func.isRequired,
+  onDeleteBag: PropTypes.func.isRequired,
+  onAddBag: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = (state) => {

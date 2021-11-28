@@ -35,6 +35,11 @@ const ActionCreator = {
 		type: ActionType.SET_ACTIVE_GUITAR,
 		payload: activeGuitar
 	}),
+	
+	setActivePage: (activePage) => ({
+		type: ActionType.SET_ACTIVE_PAGE,
+		payload: activePage
+	}),
 
 	addBag: (guitar) => ({
 		type: ActionType.ADD_BAG,

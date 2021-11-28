@@ -1,7 +1,8 @@
-import {ActionType, Sorting, SortType} from "../const";
+import {ActionType, Sorting, SortType, Page} from "../const";
 import {guitars} from '../data'
 import {deletedItemBag, addedBag, deletedBag} from '../utils'
 const initialState = {
+	activePage: Page.ONE,
 	guitars: guitars,
 	isPopupAddVisible: false,
 	isPopupDeleteVisible: false,
@@ -13,7 +14,7 @@ const initialState = {
 	bag: {
 		guitars: [],
 		totalAmount: 0,
-	}
+	},  
 }
 
 const reducer = (state = initialState, action) => {
@@ -52,6 +53,11 @@ const reducer = (state = initialState, action) => {
 			return {
 				...state,
 				activeGuitar: action.payload
+			};
+		case ActionType.SET_ACTIVE_PAGE:
+			return {
+				...state,
+				activePage: action.payload
 			};
 		case ActionType.DELETE_ITEM_BAG: 
 			return {

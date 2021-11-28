@@ -40,7 +40,7 @@ class PopupAdd extends Component {
             <div className="popup-add__wrapper">
               <h4 className="popup-add__title">Добавить товар в корзину</h4>
               <button
-                className="popup-add__close" 
+                className="popup-add__close button" 
                 onClick={this.props.onPopupAddClose}
                 aria-label="Закрыть окно"
               >
@@ -57,10 +57,11 @@ class PopupAdd extends Component {
                   <div>Цена: {formatedNumber(guitar.price)}  ₽</div>
                 </div>
                 <div className="popup-add__buttons">          
-                  <button className="popup-add__button popup-add__button--orange" 
+                  <button className="popup-add__button popup-add__button--orange button button--orange" 
                     onMouseDown={() => {
                     this.props.onAddBag(this.props.guitar);
                     this.props.onPopupAddClose()
+                    this.props.onPopupInfoOpen()
                     }}
                   >
                     Добавить в корзину</button>
@@ -76,18 +77,37 @@ class PopupAdd extends Component {
 
 PopupAdd.propTypes = {
 	visibleAdd: PropTypes.bool.isRequired,
-	onPopupAddClose: PropTypes.func.isRequired
+  visibleInfo: PropTypes.bool.isRequired,
+	onPopupAddClose: PropTypes.func.isRequired,
+	onPopupInfoOpen: PropTypes.func.isRequired,
+	onAddBag: PropTypes.func.isRequired,
+  guitar: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    reference:  PropTypes.string.isRequired,
+    name:  PropTypes.string.isRequired,
+    type:  PropTypes.string.isRequired,
+    reviewsCount: PropTypes.number.isRequired,
+    rating: PropTypes.number.isRequired,
+    stringsCount: PropTypes.number.isRequired,
+    price: PropTypes.number.isRequired,
+    image:  PropTypes.string.isRequired,
+    amount: PropTypes.number.isRequired,
+  }),
 }
 
 
 const mapStateToProps = (state) => {
 	return {
 		guitar: state.activeGuitar,
-		visibleAdd: state.isPopupAddVisible
+		visibleAdd: state.isPopupAddVisible,
+    visibleInfo: state.isPopupInfoVisible,
 	}
 };
 
 const mapDispatchToProps = (dispatch) => ({
+  onPopupInfoOpen: () => {
+    dispatch(ActionCreator.openPopupInfo());
+  },
   onPopupAddClose: () => {
     dispatch(ActionCreator.closePopupAdd());
   },
