@@ -1,5 +1,5 @@
 import "./bag.scss"
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import GuitarBag from "../guitar-bag/guitar-bag";
 import { formatedNumber } from "../../utils";
 import { Promo } from "../../const";
@@ -26,6 +26,8 @@ const Bag = (props) => {
   }
   const [promo, setPromo] = useState("")
   const [sum, setSum] = useState(props.bag.totalAmount)
+
+  useEffect(() => setSum(props.bag.totalAmount), [props.bag.totalAmount])
 
   const createBag = (bag) => {
     return (bag.guitars.length > 0 ? 
