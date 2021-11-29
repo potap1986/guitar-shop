@@ -143,7 +143,7 @@ Header.propTypes = {
 
 const mapStateToProps = (state) => {
   return {
-    bag: state.bag
+    bag: state.BAG.bag
   }
 }
 

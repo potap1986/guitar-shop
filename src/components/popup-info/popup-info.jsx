@@ -37,7 +37,7 @@ class PopupInfo extends Component {
         <ScrollLock>
           <div className="popup-info__wrapper">
             <h4 className="popup-info__title">Товар успешно добавлен в корзину</h4>
-            <button 
+            <button type="button" 
               className="popup-info__close button" 
               onClick={this.props.onPopupInfoClose} 
               aria-label="Закрыть окно"
@@ -50,7 +50,7 @@ class PopupInfo extends Component {
               <NavLink onClick={this.props.onPopupInfoClose} className="popup-info__button popup-info__button--orange button button--orange" to="/bag" exact="false">
                 Перейти в корзину
               </NavLink>
-              <button className="popup-info__button popup-info__button--white button button--white" onClick={this.props.onPopupInfoClose} >Продолжить покупки</button>
+              <button type="button" className="popup-info__button popup-info__button--white button button--white" onClick={this.props.onPopupInfoClose} >Продолжить покупки</button>
             </div>
           </div>
         </ScrollLock>
@@ -68,7 +68,7 @@ PopupInfo.propTypes = {
 
 const mapStateToProps = (state) => {
 	return {
-		visibleInfo: state.isPopupInfoVisible
+		visibleInfo: state.APP.isPopupInfoVisible
 	}
 };
 

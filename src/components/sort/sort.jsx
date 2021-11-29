@@ -20,15 +20,15 @@ const Sort = (props) => {
   return (
     <div className="sort">
       <h2 className="sort__title">Сортировать:</h2>
-      <button onClick={onSortTypeHandler} id="price" className={"sort__type button" + (props.activeSorting && props.sortType === SortType.PRICE ? " sort__type--active" : "")}>по цене</button>
-      <button onClick={onSortTypeHandler} id="reviewsCount" className={"sort__type button" + (props.activeSorting && props.sortType === SortType.REVIEWS_COUNT ? " sort__type--active" : "")}>по популярности</button>
+      <button type="button" onClick={onSortTypeHandler} id="price" className={"sort__type button" + (props.activeSorting && props.sortType === SortType.PRICE ? " sort__type--active" : "")}>по цене</button>
+      <button type="button" onClick={onSortTypeHandler} id="reviewsCount" className={"sort__type button" + (props.activeSorting && props.sortType === SortType.REVIEWS_COUNT ? " sort__type--active" : "")}>по популярности</button>
       <div className="sort__buttons">
-        <button onClick={onSortHandler} className={"sort__button sort__button--to-more button" + (props.activeSorting && props.sort === Sorting.TO_MORE ? " sort__button--active" : "")} id="toMore" aria-label="От меньшего к большему">
+        <button type="button" onClick={onSortHandler} className={"sort__button sort__button--to-more button" + (props.activeSorting && props.sort === Sorting.TO_MORE ? " sort__button--active" : "")} id="toMore" aria-label="От меньшего к большему">
           <svg width="14" height="11">
             <use xlinkHref="#triangle" />
           </svg>
         </button>
-        <button  onClick={onSortHandler} className={"sort__button sort__button--to-small button" + (props.activeSorting && props.sort === Sorting.TO_SMALL ? " sort__button--active" : "")} id="toSmall" aria-label="От большего к меньшему">
+        <button type="button"  onClick={onSortHandler} className={"sort__button sort__button--to-small button" + (props.activeSorting && props.sort === Sorting.TO_SMALL ? " sort__button--active" : "")} id="toSmall" aria-label="От большего к меньшему">
           <svg width="14" height="11">
             <use xlinkHref="#triangle" />
           </svg>
@@ -48,9 +48,9 @@ Sort.propTypes = {
 
 const mapStateToProps = (state) => {
   return {
-    sort: state.sort,
-    sortType: state.sortType,
-    activeSorting: state.activeSorting,
+    sort: state.APP.sort,
+    sortType: state.APP.sortType,
+    activeSorting: state.APP.activeSorting,
   }
 }
 

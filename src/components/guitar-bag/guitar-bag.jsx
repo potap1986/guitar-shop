@@ -12,7 +12,7 @@ const GuitarBag = (props) => {
         props.onSetGuitar(props.guitar);
       }}
     >
-      <button className="guitar-bag__close button" onClick={() => props.onPopupDeleteOpen()} aria-label="Удалить">
+      <button type="button" className="guitar-bag__close button" onClick={() => props.onPopupDeleteOpen()} aria-label="Удалить">
         <svg width="12" height="12">
           <use xlinkHref="#close" />
         </svg>
@@ -25,13 +25,13 @@ const GuitarBag = (props) => {
       </div>
       <div className="guitar-bag__price">{formatedNumber(props.guitar.price)}  ₽</div>
       <div className="guitar-bag__buttons">
-        <button className="button"
-          onClick={() => props.onDeleteBag(props.guitar)}
+        <button type="button" className="button"
+          onClick={() => (props.guitar.amount === 1 ? props.onPopupDeleteOpen() : props.onDeleteBag(props.guitar))}
         >
           -
         </button>
         <span>{props.guitar.amount}</span>
-        <button className="button"
+        <button type="button" className="button"
           onClick={() => props.onAddBag(props.guitar)}
         >
           +
@@ -76,8 +76,8 @@ GuitarBag.propTypes = {
 
 const mapStateToProps = (state) => {
 	return {
-		activeGuitar: state.activeGuitar,
-		visibleDelete: state.isPopupDeleteVisible
+		activeGuitar: state.APP.activeGuitar,
+		visibleDelete: state.APP.isPopupDeleteVisible
 	}
 };
 

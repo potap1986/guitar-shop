@@ -5,14 +5,16 @@ import Guitars from "../guitars/guitars";
 import {connect} from 'react-redux'
 import {getMinPrice, getMaxPrice, getFiltered} from '../../utils'
 import PropTypes from "prop-types";
+import {GUITARS_ON_PAGE} from '../../const'
 
 const Catalog = (props) => {
   const minPrice = getMinPrice(props.guitars)
   const maxPrice = getMaxPrice(props.guitars)  
   const [filter, setFilter] = useState({
+    on: false,
     price: {
-      min: String(minPrice),
-      max: String(maxPrice)
+      min: "",
+      max: ""
     },
     type: {
       acoustic: false,
@@ -27,6 +29,7 @@ const Catalog = (props) => {
     }
   })
   const filtredGuitars = getFiltered(props.guitars, filter)
+  const pages = Math.ceil(filtredGuitars.length / GUITARS_ON_PAGE)
   return (
     <div className="catalog">
       <div className="catalog__container container">
@@ -47,7 +50,7 @@ const Catalog = (props) => {
             maxPrice = {maxPrice} 
             minPrice = {minPrice}
           />
-          <Guitars guitars={filtredGuitars} />
+          <Guitars guitars={filtredGuitars} pages={pages} />
         </div>        
       </div>
     </div>
@@ -75,7 +78,9 @@ Catalog.propTypes = {
   
   const mapStateToProps = (state) => {
     return {
-      guitars: state.guitars,
+      guitars: state.APP.guitars,
     }
   }
+
+
 export default connect(mapStateToProps)(Catalog)

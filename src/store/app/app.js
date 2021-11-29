@@ -1,6 +1,5 @@
-import {ActionType, Sorting, SortType, Page} from "../const";
-import {guitars} from '../data'
-import {deletedItemBag, addedBag, deletedBag} from '../utils'
+import {ActionType, Sorting, SortType, Page} from "../../const";
+import {guitars} from '../../data'
 const initialState = {
 	activePage: Page.ONE,
 	guitars: guitars,
@@ -11,10 +10,6 @@ const initialState = {
 	sort: Sorting.TO_MORE,
 	sortType: SortType.PRICE,
 	activeSorting: false,
-	bag: {
-		guitars: [],
-		totalAmount: 0,
-	},  
 }
 
 const reducer = (state = initialState, action) => {
@@ -22,32 +17,32 @@ const reducer = (state = initialState, action) => {
 		case ActionType.OPEN_POPUP_ADD:
 			return {
 				...state,
-				isPopupAddVisible: action.payload
+				isPopupAddVisible: true
 			};
 		case ActionType.CLOSE_POPUP_ADD:
 			return {
 				...state,
-				isPopupAddVisible: action.payload
+				isPopupAddVisible: false
 			};
 		case ActionType.OPEN_POPUP_DELETE:
 			return {
 				...state,
-				isPopupDeleteVisible: action.payload
+				isPopupDeleteVisible: true
 			};
 		case ActionType.CLOSE_POPUP_DELETE:
 			return {
 				...state,
-				isPopupDeleteVisible: action.payload
+				isPopupDeleteVisible: false
 			};
 		case ActionType.OPEN_POPUP_INFO:
 			return {
 				...state,
-				isPopupInfoVisible: action.payload
+				isPopupInfoVisible: true
 			};
 		case ActionType.CLOSE_POPUP_INFO:
 			return {
 				...state,
-				isPopupInfoVisible: action.payload
+				isPopupInfoVisible: false
 			};
 		case ActionType.SET_ACTIVE_GUITAR:
 			return {
@@ -59,38 +54,11 @@ const reducer = (state = initialState, action) => {
 				...state,
 				activePage: action.payload
 			};
-		case ActionType.DELETE_ITEM_BAG: 
-			return {
-				...state,
-				bag: deletedItemBag(state, action.payload)
-			};
-		case ActionType.ADD_BAG:
-				return {
-					...state,
-					bag: addedBag(state, action.payload)
-			};
-		case ActionType.DELETE_BAG: 
-			return {
-				...state,
-				bag: deletedBag(state, action.payload)
-		  };
-		case ActionType.RESET_SORT_TYPE:
-			return {
-				...state,
-				sortType: SortType.PRICE,
-				activeSorting: false
-			};
 		case ActionType.SET_SORT_TYPE:
 			return {
 				...state,
 				sortType: action.payload,
 				activeSorting: true
-			};
-		case ActionType.RESET_SORT:
-			return {
-				...state,
-				sort: Sorting.TO_MORE,
-				activeSorting: false
 			};
 		case ActionType.SET_SORT:
 			return {

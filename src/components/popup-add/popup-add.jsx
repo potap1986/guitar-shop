@@ -57,7 +57,7 @@ class PopupAdd extends Component {
                   <div>Цена: {formatedNumber(guitar.price)}  ₽</div>
                 </div>
                 <div className="popup-add__buttons">          
-                  <button className="popup-add__button popup-add__button--orange button button--orange" 
+                  <button type="button" className="popup-add__button popup-add__button--orange button button--orange" 
                     onMouseDown={() => {
                     this.props.onAddBag(this.props.guitar);
                     this.props.onPopupAddClose()
@@ -98,9 +98,9 @@ PopupAdd.propTypes = {
 
 const mapStateToProps = (state) => {
 	return {
-		guitar: state.activeGuitar,
-		visibleAdd: state.isPopupAddVisible,
-    visibleInfo: state.isPopupInfoVisible,
+		guitar: state.APP.activeGuitar,
+		visibleAdd: state.APP.isPopupAddVisible,
+    visibleInfo: state.APP.isPopupInfoVisible,
 	}
 };
 

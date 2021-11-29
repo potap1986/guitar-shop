@@ -1,34 +1,28 @@
 import {ActionType} from "../const";
 
 const ActionCreator = {
-	openPopupAdd: (isPopupAddVisible) => ({
+	openPopupAdd: () => ({
 		type: ActionType.OPEN_POPUP_ADD,
-		payload: true
 	}),
 
-	closePopupAdd: (isPopupAddVisible) => ({
+	closePopupAdd: () => ({
 		type: ActionType.CLOSE_POPUP_ADD,
-		payload: false
 	}),
 
-	openPopupDelete: (isPopupDeleteVisible) => ({
+	openPopupDelete: () => ({
 		type: ActionType.OPEN_POPUP_DELETE,
-		payload: true
 	}),
 
-	closePopupDelete: (isPopupDeleteVisible) => ({
+	closePopupDelete: () => ({
 		type: ActionType.CLOSE_POPUP_DELETE,
-		payload: false
 	}),
 	
-	openPopupInfo: (isPopupInfoVisible) => ({
+	openPopupInfo: () => ({
 		type: ActionType.OPEN_POPUP_INFO,
-		payload: true
 	}),
 
-	closePopupInfo: (isPopupInfoVisible) => ({
+	closePopupInfo: () => ({
 		type: ActionType.CLOSE_POPUP_INFO,
-		payload: false
 	}),
 	
 	setActiveGuitar: (activeGuitar) => ({
@@ -61,17 +55,9 @@ const ActionCreator = {
 		payload: sort
 	}),
 
-	resetSort: () => ({
-		type: ActionType.RESET_SORT
-	}),
-
 	setSortType: (sortType) => ({
 		type: ActionType.SET_SORT_TYPE,
 		payload: sortType
-	}),
-
-	resetSortType: () => ({
-		type: ActionType.RESET_SORT_TYPE
 	}),
 
 };

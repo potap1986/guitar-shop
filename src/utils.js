@@ -29,6 +29,7 @@ const deletedItemBag = (state, action) => {
 	};
 }
 
+
 const addedBag = (state, action) => {
   const updatedTotalAmount =
     state.bag.totalAmount + action.price;
@@ -93,30 +94,35 @@ const getSorting = (guitars, sortType, sort, active) => {
 };
 
 const getFiltered = (guitars, filter) => {
-  const filteredGuitars = []
+  let filteredGuitars = []
   const types = Object.keys(filter.type)
   const typesOn = Object.values(filter.type)
   const strings = Object.keys(filter.string)
   const stringsOn = Object.values(filter.string)
-  guitars.forEach((guitar) => {
-    if (guitar.price >= filter.price.min && guitar.price <= filter.price.max) {
-      if (((guitar.type === GuitarType[types[0].toUpperCase()]) && typesOn[0]) || 
-          ((guitar.type === GuitarType[types[1].toUpperCase()]) && typesOn[1]) ||
-          ((guitar.type === GuitarType[types[2].toUpperCase()]) && typesOn[2]) ||
-          ( !typesOn[0] && !typesOn[1] && !typesOn[2])
-      ) {
-        if (((guitar.stringsCount === StringsCount[strings[0].toUpperCase()]) && stringsOn[0]) || 
-            ((guitar.stringsCount === StringsCount[strings[1].toUpperCase()]) && stringsOn[1]) ||
-            ((guitar.stringsCount === StringsCount[strings[2].toUpperCase()]) && stringsOn[2]) ||
-            ((guitar.stringsCount === StringsCount[strings[3].toUpperCase()]) && stringsOn[3]) ||
-            ( !stringsOn[0] && !stringsOn[1] && !stringsOn[2] && !stringsOn[3])
-        ) {
 
-          filteredGuitars.push(guitar)
+  if (filter.on) {
+    guitars.forEach((guitar) => {
+      if (guitar.price >= filter.price.min && guitar.price <= filter.price.max) {
+        if (((guitar.type === GuitarType[types[0].toUpperCase()]) && typesOn[0]) || 
+            ((guitar.type === GuitarType[types[1].toUpperCase()]) && typesOn[1]) ||
+            ((guitar.type === GuitarType[types[2].toUpperCase()]) && typesOn[2]) ||
+            ( !typesOn[0] && !typesOn[1] && !typesOn[2])
+        ) {
+          if (((guitar.stringsCount === StringsCount[strings[0].toUpperCase()]) && stringsOn[0]) || 
+              ((guitar.stringsCount === StringsCount[strings[1].toUpperCase()]) && stringsOn[1]) ||
+              ((guitar.stringsCount === StringsCount[strings[2].toUpperCase()]) && stringsOn[2]) ||
+              ((guitar.stringsCount === StringsCount[strings[3].toUpperCase()]) && stringsOn[3]) ||
+              ( !stringsOn[0] && !stringsOn[1] && !stringsOn[2] && !stringsOn[3])
+          ) {
+  
+            filteredGuitars.push(guitar)
+          }
         }
       }
-    }
-  })
+    })
+  } else {
+    filteredGuitars = filteredGuitars.concat(guitars)
+  }
   return filteredGuitars
 }
 

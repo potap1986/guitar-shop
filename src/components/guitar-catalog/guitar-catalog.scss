@@ -85,7 +85,7 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  margin-bottom: 16px;
+  margin-bottom: 11px;
 
   span {
     font-weight: normal;
@@ -94,6 +94,12 @@
     text-align: right;
     letter-spacing: 0.05em;
     color: #000000;
+    word-break: break-all;
+    margin-bottom: 5px;
+
+    &:last-of-type {
+      margin-left: auto;
+    }
   }
 }
 

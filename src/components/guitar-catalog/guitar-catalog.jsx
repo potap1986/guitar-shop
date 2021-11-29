@@ -24,8 +24,8 @@ const GuitarCatalog = (props) => {
         <span>{formatedNumber(props.guitar.price)} ₽</span>
       </div>
       <div className="guitar-catalog__buttons">
-        <button className="guitar-catalog__button guitar-catalog__button--left button button--gray">Подробнее</button>
-        <button className="guitar-catalog__button guitar-catalog__button--right button button orange" onClick={() => props.onPopupAddOpen()}>
+        <button type="button" className="guitar-catalog__button guitar-catalog__button--left button button--gray">Подробнее</button>
+        <button type="button" className="guitar-catalog__button guitar-catalog__button--right button button orange" onClick={() => props.onPopupAddOpen()}>
           <svg width="11" height="11">
             <use xlinkHref="#buy" />
           </svg>
@@ -69,8 +69,8 @@ GuitarCatalog.propTypes = {
 
 const mapStateToProps = (state) => {
 	return {
-		activeGuitar: state.activeGuitar,
-		visibleAdd: state.isPopupAddVisible
+		activeGuitar: state.APP.activeGuitar,
+		visibleAdd: state.APP.isPopupAddVisible
 	}
 };
 

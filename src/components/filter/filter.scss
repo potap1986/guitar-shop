@@ -54,6 +54,10 @@
   letter-spacing: 0.05em;
   color: rgba(0, 0, 0, 0.6);
 
+  &::placeholder {
+    opacity: 0.3
+  }
+
   &:focus,
   &:hover {
     border: 0.7px solid #585757;

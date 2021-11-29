@@ -76,10 +76,10 @@ App.propTypes = {
 
 const mapStateToProps = (state) => {
 	return {
-		visibleAdd: state.isPopupAddVisible,   
-		visibleDelete: state.isPopupDeleteVisible,    
-		visibleInfo: state.isPopupInfoVisible,
-    bag: state.bag
+		visibleAdd: state.APP.isPopupAddVisible,   
+		visibleDelete: state.APP.isPopupDeleteVisible,    
+		visibleInfo: state.APP.isPopupInfoVisible,
+    bag: state.BAG.bag
 	}
 };
 

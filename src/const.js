@@ -12,9 +12,7 @@ const ActionType = {
   DELETE_BAG: 'deleteBag',
   DELETE_ITEM_BAG: 'deleteItemBag',
   SET_SORT_TYPE: `setSortType`,
-  RESET_SORT_TYPE: `resetSortType`,
   SET_SORT: `setSort`,
-  RESET_SORT: `resetSort`,
 }
 
 const GuitarType = {
