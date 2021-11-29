@@ -6,29 +6,20 @@ import {SortType, Sorting} from '../../const'
 import PropTypes from "prop-types";
 
 const Sort = (props) => {
-  const onSortHandler = (evt) => {
-    evt.preventDefault()   
-    const buttonSort = evt.target.closest(".sort__button") 
-    props.onSetSort(buttonSort.id)
-  }
-  const onSortTypeHandler = (evt) => { 
-    evt.preventDefault()     
-    const buttonSortType = evt.target.closest(".sort__type")  
-    props.onSetSortType(buttonSortType.id)
-  }
-
+  // можно было бы добавить id по месту вызова в jsx 
+// кнопкам обязательно добавляй type="button", чтобы зоопарк дефолтного поведения не возникал и не нужно было evt.preventDefault везде указывать.
   return (
     <div className="sort">
       <h2 className="sort__title">Сортировать:</h2>
-      <button onClick={onSortTypeHandler} id="price" className={"sort__type button" + (props.activeSorting && props.sortType === SortType.PRICE ? " sort__type--active" : "")}>по цене</button>
-      <button onClick={onSortTypeHandler} id="reviewsCount" className={"sort__type button" + (props.activeSorting && props.sortType === SortType.REVIEWS_COUNT ? " sort__type--active" : "")}>по популярности</button>
+      <button type="button" onClick={()=>props.onSetSortType(SortType.PRICE)} id="price" className={"sort__type button" + (props.activeSorting && props.sortType === SortType.PRICE ? " sort__type--active" : "")}>по цене</button>
+      <button type="button" onClick={()=>props.onSetSortType(SortType.REVIEWS_COUNT)} id="reviewsCount" className={"sort__type button" + (props.activeSorting && props.sortType === SortType.REVIEWS_COUNT ? " sort__type--active" : "")}>по популярности</button>
       <div className="sort__buttons">
-        <button onClick={onSortHandler} className={"sort__button sort__button--to-more button" + (props.activeSorting && props.sort === Sorting.TO_MORE ? " sort__button--active" : "")} id="toMore" aria-label="От меньшего к большему">
+        <button type="button" onClick={()=>props.onSetSort(Sorting.TO_MORE)} className={"sort__button sort__button--to-more button" + (props.activeSorting && props.sort === Sorting.TO_MORE ? " sort__button--active" : "")} id="toMore" aria-label="От меньшего к большему">
           <svg width="14" height="11">
             <use xlinkHref="#triangle" />
           </svg>
         </button>
-        <button  onClick={onSortHandler} className={"sort__button sort__button--to-small button" + (props.activeSorting && props.sort === Sorting.TO_SMALL ? " sort__button--active" : "")} id="toSmall" aria-label="От большего к меньшему">
+        <button type="button" onClick={()=>props.onSetSort(Sorting.TO_SMALL)} className={"sort__button sort__button--to-small button" + (props.activeSorting && props.sort === Sorting.TO_SMALL ? " sort__button--active" : "")} id="toSmall" aria-label="От большего к меньшему">
           <svg width="14" height="11">
             <use xlinkHref="#triangle" />
           </svg>
