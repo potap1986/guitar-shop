@@ -23,7 +23,7 @@ const Navigation = (props) => {
   return (
     <div className="navigation">
       <button type="button" id={Page.ONE} onClick={changeActivePage} className={"navigation__button button" + (activePage === Page.ONE ?  " navigation__button--active" : "")}>{Page.ONE}</button>
-      <button type="button" id={Page.TWO} onClick={changeActivePage} className={"navigation__button button" + (activePage === Page.TWO ?  " navigation__button--active" : (activePage !== Page.ONE && pages !== Page.THREE ? " visually-hidden" : ""))}>{Page.TWO}</button>
+      {pages === Page.ONE ? <></> : <button type="button" id={Page.TWO} onClick={changeActivePage} className={"navigation__button button" + (activePage === Page.TWO ?  " navigation__button--active" : (activePage !== Page.ONE && pages !== Page.THREE ? " visually-hidden" : ""))}>{Page.TWO}</button>}
       <button type="button" className={"navigation__button navigation__button--unactive  button" + (pages === Page.THREE || (activePage <= Page.TWO) ? " visually-hidden" : "")}>...</button>
       {(activePage > Page.TWO && activePage < (pages - 1)) ? <button type="button" id={activePage} onClick={() => {}} className="navigation__button button navigation__button--active">{activePage}</button> : <></>}
       <button type="button" className={"navigation__button navigation__button--unactive  button" + (pages === Page.THREE || (activePage >= (pages - Page.ONE)) ? " visually-hidden" : "")}>...</button>
