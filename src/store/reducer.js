@@ -62,7 +62,7 @@ const reducer = (state = initialState, action) => {
 		case ActionType.DELETE_ITEM_BAG: 
 			return {
 				...state,
-				bag: deletedItemBag(state, action.payload)
+				bag: deletedItemBag(state, action.payload)//ему бы надо state.bug передать
 			};
 		case ActionType.ADD_BAG:
 				return {

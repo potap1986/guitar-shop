@@ -1,5 +1,6 @@
 import {ActionType} from "../const";
 
+//идея правильная, но лишние параметры зачем?
 const ActionCreator = {
 	openPopupAdd: (isPopupAddVisible) => ({
 		type: ActionType.OPEN_POPUP_ADD,

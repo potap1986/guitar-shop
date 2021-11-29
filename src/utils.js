@@ -1,5 +1,6 @@
 import {Sorting, StringsCount, GuitarType} from './const'
 
+//для форматирования числе, даты  следует использовать Intl.NumberFormat Intl.DateTimeFormat
 const formatedNumber = (num) => {
   let number = String(Math.round(num));
   let result = ""
@@ -14,6 +15,9 @@ const formatedNumber = (num) => {
   return result
 }
 
+//а чем не подходит Array.prototype.find()
+// в этой функции state не используется, а используется bag правильнее бы ее deletedItemBag(bag, action) сделать
+// пересчет суммы лучше иметь в отдельной функции - которая бы считала не - (минус) + (плюс) а для реальных элементов sum()
 const deletedItemBag = (state, action) => {
 	const existingCartGuitarIndex = state.bag.guitars.findIndex(
 		(guitar) => guitar.id === action.id
@@ -29,6 +33,9 @@ const deletedItemBag = (state, action) => {
 	};
 }
 
+//а чем не подходит Array.prototype.find()
+//в этой функции state не используется правильнее бы ее addedBag(bag, action)
+// пересчет суммы лучше иметь в отдельной функции - которая бы считала не - (минус) + (плюс) а для реальных элементов sum()
 const addedBag = (state, action) => {
   const updatedTotalAmount =
     state.bag.totalAmount + action.price;
@@ -60,6 +67,7 @@ const deletedBag = (state, action) => {
   const existingCartGuitarIndex = state.bag.guitars.findIndex(
     (guitar) => guitar.id === action.id
   );
+  // а если existingCartGuitarIndex === -1?
   const existingGuitar = state.bag.guitars[existingCartGuitarIndex];
   const updatedTotalAmount = state.bag.totalAmount - existingGuitar.price;
   let updatedGuitars;
@@ -120,11 +128,15 @@ const getFiltered = (guitars, filter) => {
   return filteredGuitars
 }
 
+//зачем копировать и сортировать весь массив, если нужен только один элемент
+const getMinPrice2 = (guitars)=>guitars.reduce((a,b)=>(a<b?a:b),Number.MAX_VALUE);
 const getMinPrice = (guitars) => {
   const sortedGuitars  =  guitars.slice().sort((a, b) => a.price - b.price);
   return sortedGuitars[0].price
 }
 
+//зачем копировать и сортировать весь массив, если нужен только максимальный элемент
+const getMaxPrice2 = (guitars)=> guitars.reduce((a,b)=>a>b?a:b,0);
 const getMaxPrice = (guitars) => {
   const sortedGuitars  =  guitars.slice().sort((a, b) => b.price - a.price);
   return sortedGuitars[0].price
