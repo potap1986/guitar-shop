@@ -54,4 +54,9 @@ const Page = {
   THREE: 3
 }
 
-export {ActionType, GuitarType, StringsCount, MAX_RATE, Promo, Sorting, SortType, GUITARS_ON_PAGE, Page}
+const Number = {
+  MAX_VALUE: 35000,
+  MIN_VALUE: 1700
+}
+
+export {ActionType, GuitarType, StringsCount, MAX_RATE, Promo, Sorting, SortType, GUITARS_ON_PAGE, Page, Number}

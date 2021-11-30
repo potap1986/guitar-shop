@@ -1,47 +1,39 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import "./filter.scss"
 import { IMaskInput } from 'react-imask'
 import { StringsCount } from '../../const'
 import PropTypes from "prop-types";
 import { formatedNumber } from '../../utils';
 
+const toBool = (value) => !!value;
+
 const Filter = (props) => {
-  const [disabledString, setDisabledString] = useState({
-    four: false,
-    six: false,
-    seven: false,
-    twelve: false,
-  })
 
-  useEffect(() => {
-    setDisabledString({
-      four: !props.filter.type.acoustic ? false : ((props.filter.type.electro || props.filter.type.ukulele) ? false : true),
-      six: !props.filter.type.ukulele ? false : ((props.filter.type.electro || props.filter.type.acoustic) ? false : true),
-      seven: !props.filter.type.ukulele ? false : ((props.filter.type.electro || props.filter.type.acoustic) ? false : true),
-      twelve: !(props.filter.type.electro || props.filter.type.ukulele) ? false : (props.filter.type.acoustic ? false : true),
-    })
-  }, [props.filter.type])
+  const disabledString = {
+    four: !props.filter.type.acoustic ? false : ((props.filter.type.electro || props.filter.type.ukulele) ? false : true),
+    six: !props.filter.type.ukulele ? false : ((props.filter.type.electro || props.filter.type.acoustic) ? false : true),
+    seven: !props.filter.type.ukulele ? false : ((props.filter.type.electro || props.filter.type.acoustic) ? false : true),
+    twelve: !(props.filter.type.electro || props.filter.type.ukulele) ? false : (props.filter.type.acoustic ? false : true),
+  }
 
-  const handleMinPriceChange = (value) => {
-    let maxPrice = props.filter.price.max
+  const handleMinPriceChange = (value) => { 
     props.setFilter({
       ...props.filter,
       on: true,
       price: {
-        max: (maxPrice === "") ? String(props.maxPrice) : maxPrice,
+        max: props.filter.price.max,
         min: String(value)
       }
     })
   }
 
   const handleMaxPriceChange = (value) => {
-    let minPrice = props.filter.price.min
     props.setFilter({
       ...props.filter,
       on: true,
       price: {
         max: String(value),
-        min: (minPrice === "") ? String(props.minPrice) : minPrice
+        min: props.filter.price.min
       }
     })
   }
@@ -95,8 +87,8 @@ const Filter = (props) => {
       ...prevFilter,
       on: true,
       price: {
-        max: (maxPrice === "") ? String(props.maxPrice) : maxPrice,
-        min: (minPrice === "") ? String(props.minPrice) : minPrice
+        max: (maxPrice === "") ? "" : (Number(maxPrice) > props.maxPrice ? String(props.maxPrice) : maxPrice),
+        min: (minPrice === "") ? "" : (Number(minPrice) < props.minPrice ? String(props.minPrice) : minPrice),
       },
       type: {
         ...prevFilter.type,
@@ -112,8 +104,8 @@ const Filter = (props) => {
       ...prevFilter,
       on: true,
       price: {
-        max: (maxPrice === "") ? String(props.maxPrice) : maxPrice,
-        min: (minPrice === "") ? String(props.minPrice) : minPrice
+        max: (maxPrice === "") ? "" : (Number(maxPrice) > props.maxPrice ? String(props.maxPrice) : maxPrice),
+        min: (minPrice === "") ? "" : (Number(minPrice) < props.minPrice ? String(props.minPrice) : minPrice),
       },
       string: {
         ...prevFilter.string,
@@ -182,8 +174,8 @@ const Filter = (props) => {
           <h4 className="filter__title">Тип гитар</h4>
           <input
             onChange={handleTypeChange}
-            checked={props.filter.type.acoustic}
-            value={props.filter.type.acoustic}
+            checked={toBool(props.filter.type.acoustic)}
+            value={toBool(props.filter.type.acoustic)}
             className="filter__input-checkbox visually-hidden"
             id="acoustic"
             name="acoustic"
@@ -193,8 +185,8 @@ const Filter = (props) => {
             htmlFor="acoustic">Акустические гитары</label>
           <input
             onChange={handleTypeChange}
-            checked={props.filter.type.electro}
-            value={props.filter.type.acoustic}
+            checked={toBool(props.filter.type.electro)}
+            value={toBool(props.filter.type.electro)}
             className="filter__input-checkbox visually-hidden"
             id="electro"
             name="electro"
@@ -204,8 +196,8 @@ const Filter = (props) => {
             htmlFor="electro">Электрогитары</label>
           <input
             onChange={handleTypeChange}
-            checked={props.filter.type.ukulele}
-            value={props.filter.type.acoustic}
+            checked={toBool(props.filter.type.ukulele)}
+            value={toBool(props.filter.type.ukulele)}
             className="filter__input-checkbox visually-hidden"
             id="ukulele"
             name="ukulele"
@@ -218,7 +210,7 @@ const Filter = (props) => {
           <h4 className="filter__title">Количество струн</h4>
           <input
             onChange={handleStringChange}
-            checked={disabledString.four ? false : props.filter.string.four.checked}
+            checked={disabledString.four ? false : toBool(props.filter.string.four)}
             disabled={disabledString.four}
             className="filter__input-checkbox visually-hidden"
             id="four"
@@ -229,7 +221,7 @@ const Filter = (props) => {
             htmlFor="four">{StringsCount.FOUR}</label>
           <input
             onChange={handleStringChange}
-            checked={disabledString.six ? false : props.filter.string.six.checked}
+            checked={disabledString.six ? false : toBool(props.filter.string.six)}
             disabled={disabledString.six}
             className="filter__input-checkbox visually-hidden"
             id="six"
@@ -240,7 +232,7 @@ const Filter = (props) => {
             htmlFor="six">{StringsCount.SIX}</label>
           <input
             onChange={handleStringChange}
-            checked={disabledString.seven ? false : props.filter.string.seven.checked}
+            checked={disabledString.seven ? false : toBool(props.filter.string.seven)}
             disabled={disabledString.seven}
             className="filter__input-checkbox visually-hidden"
             id="seven"
@@ -251,7 +243,7 @@ const Filter = (props) => {
             htmlFor="seven">{StringsCount.SEVEN}</label>
           <input
             onChange={handleStringChange}
-            checked={disabledString.twelve ? false : props.filter.string.twelve.checked}
+            checked={disabledString.twelve ? false : toBool(props.filter.string.twelve)}
             disabled={disabledString.twelve}
             className="filter__input-checkbox visually-hidden"
             id="twelve"

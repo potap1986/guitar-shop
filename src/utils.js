@@ -1,4 +1,4 @@
-import {Sorting, StringsCount, GuitarType} from './const'
+import {Sorting, StringsCount, GuitarType, Number} from './const'
 
 const formatedNumber = (num) => {
   let number = String(Math.round(num));
@@ -102,7 +102,7 @@ const getFiltered = (guitars, filter) => {
 
   if (filter.on) {
     guitars.forEach((guitar) => {
-      if (guitar.price >= filter.price.min && guitar.price <= filter.price.max) {
+      if (((guitar.price >= (filter.price.min)) || (filter.price.min === "")) && ((guitar.price <= filter.price.max) || (filter.price.max === ""))) {
         if (((guitar.type === GuitarType[types[0].toUpperCase()]) && typesOn[0]) || 
             ((guitar.type === GuitarType[types[1].toUpperCase()]) && typesOn[1]) ||
             ((guitar.type === GuitarType[types[2].toUpperCase()]) && typesOn[2]) ||
@@ -126,15 +126,16 @@ const getFiltered = (guitars, filter) => {
   return filteredGuitars
 }
 
-const getMinPrice = (guitars) => {
-  const sortedGuitars  =  guitars.slice().sort((a, b) => a.price - b.price);
-  return sortedGuitars[0].price
+const getMinPrice = (filteredGuitars, dataGuitars) => {
+  const guitars = (filteredGuitars.length !== 0 ? filteredGuitars : dataGuitars)
+  return guitars.reduce((a, b) => a < b.price ? a : b.price , Number.MAX_VALUE);
 }
 
-const getMaxPrice = (guitars) => {
-  const sortedGuitars  =  guitars.slice().sort((a, b) => b.price - a.price);
-  return sortedGuitars[0].price
+const getMaxPrice = (filteredGuitars, dataGuitars) => {
+  const guitars = (filteredGuitars.length !== 0 ? filteredGuitars : dataGuitars)
+  return guitars.reduce((a, b) => a > b.price ? a : b.price , Number.MIN_VALUE);
 }
+
 
 
 export {formatedNumber, deletedItemBag, addedBag, deletedBag, getSorting, getMaxPrice, getMinPrice, getFiltered}

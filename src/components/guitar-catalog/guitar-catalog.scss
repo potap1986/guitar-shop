@@ -1,15 +1,11 @@
 .guitar-catalog {
-  width: calc(33% - 12px);
+  width: 219px; //calc(33% - 12px);
   display: inline-block;
-  margin-right: 20px;
+  margin-left: 20px;
   margin-bottom: 30px;
   border: 1px solid #DDDADA;
   padding: 12px 11px 20px;
   text-align: center;
-
-  &:nth-child(3n+3) {
-    margin-right: 0;
-  }
 }
 
 .guitar__image {
