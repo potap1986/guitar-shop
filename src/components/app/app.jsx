@@ -39,6 +39,7 @@ const App = (props) =>  {
           <Routes>
             <Route exact path="/bag" element={<Bag bag={props.bag} />} />
             <Route exact path="/" element={<Catalog />} />
+            <Route path="*" element={<div/>}/>
           </Routes>
       </main>
       <Footer />
