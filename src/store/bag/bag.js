@@ -1,5 +1,5 @@
 import {ActionType} from "../../const";
-import {deletedItemBag, addedBag, deletedBag} from '../../utils'
+import {deletedItemBag, addedBag, deletedBag, changedAmount} from '../../utils'
 const initialState = {
 	bag: {
 		guitars: [],
@@ -24,6 +24,11 @@ const reducer = (state = initialState, action) => {
 				...state,
 				bag: deletedBag(state, action.payload)
 		  };
+		case ActionType.CHANGE_AMOUNT: 
+			return {
+				...state,
+				bag: changedAmount(state, action.payload)
+			};
 		default:
 			return state;
 	}

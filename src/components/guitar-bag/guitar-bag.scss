@@ -70,6 +70,7 @@
   width: 10%;
 
   >* {
+    width: 30%;
     display: inline-block;
     font-weight: normal;
     font-size: 16px;
@@ -80,6 +81,11 @@
     border: 1px solid #9F9E9E;
     background-color: inherit;
     margin-left: -1px;
+  }
+
+  input {
+    padding: 6.5px 1px;
+    text-align: center;
   }
 }
 

@@ -57,6 +57,33 @@ const addedBag = (state, action) => {
   };
 };
 
+const changedAmount = (state, action) => {
+  const updatedTotalAmount =
+    state.bag.totalAmount + action.guitar.price * (action.amount - action.guitar.amount) ;
+
+  const existingCartGuitarIndex = state.bag.guitars.findIndex(
+    (guitar) => guitar.id === action.guitar.id
+  );
+  const existingCartGuitar = state.bag.guitars[existingCartGuitarIndex];
+  let updatedGuitars;
+
+  if (existingCartGuitar) {
+    const updatedGuitar = {
+      ...existingCartGuitar,
+      amount: action.amount,
+    };
+    updatedGuitars = [...state.bag.guitars];
+    updatedGuitars[existingCartGuitarIndex] = updatedGuitar;
+  } else {
+    updatedGuitars = state.bag.guitars.concat(action.guitar);
+  }
+
+  return {
+    guitars: updatedGuitars,
+    totalAmount: updatedTotalAmount,
+  };
+};
+
 const deletedBag = (state, action) => {
   const existingCartGuitarIndex = state.bag.guitars.findIndex(
     (guitar) => guitar.id === action.id
@@ -138,4 +165,4 @@ const getMaxPrice = (filteredGuitars, dataGuitars) => {
 
 
 
-export {formatedNumber, deletedItemBag, addedBag, deletedBag, getSorting, getMaxPrice, getMinPrice, getFiltered}
+export {formatedNumber, changedAmount, deletedItemBag, addedBag, deletedBag, getSorting, getMaxPrice, getMinPrice, getFiltered}

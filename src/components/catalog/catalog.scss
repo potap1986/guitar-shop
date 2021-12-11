@@ -24,6 +24,11 @@
     line-height: 19px;
   }
 
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
   svg {
     display: inline-block;
     margin-right: 12px;

@@ -45,6 +45,11 @@ const ActionCreator = {
 		payload: guitar
 	}),
 
+	changeAmount: (guitar, amount) => ({
+		type: ActionType.CHANGE_AMOUNT,
+		payload: {guitar, amount}
+	}),
+
 	deleteItemBag: (guitar) => ({
 		type: ActionType.DELETE_ITEM_BAG,
 		payload: guitar

@@ -1,11 +1,21 @@
 import React from 'react';
 import './guitar-bag.scss'
 import {formatedNumber} from '../../utils'
+import {MIN_AMOUNT} from '../../const'
 import ActionCreator from '../../store/actions'
 import { connect } from 'react-redux';
 import PropTypes from "prop-types";
+import { IMaskInput } from 'react-imask'
 
 const GuitarBag = (props) => {
+  const handleAmountChange = (value) => {
+    if (Number(value) >= 0) {      
+      props.onAmountChange(props.guitar, Number(value))
+    } else {      
+      props.onAmountChange(props.guitar, props.guitar.amount)
+    }
+  }
+
   return (
     <div className="guitar-bag"
       onMouseDown={() => {
@@ -30,7 +40,27 @@ const GuitarBag = (props) => {
         >
           -
         </button>
-        <span>{props.guitar.amount}</span>
+        <label className="visually-hidden" htmlFor="amount">Введите количество</label>
+        <IMaskInput
+          value={String(props.guitar.amount)}
+          onAccept={handleAmountChange}
+          onBlur={() => props.guitar.amount > MIN_AMOUNT ? null : props.onAmountChange(props.guitar, MIN_AMOUNT)}
+          id="amount" name="amount" 
+          unmask={true}
+          mask={[
+            { mask: '' },
+            {
+              mask: 'num',
+              lazy: false,
+              blocks: {
+                num: {
+                  mask: Number,
+                  thousandsSeparator: ' ',
+                }
+              }
+            }
+          ]} 
+        />
         <button type="button" className="button"
           onClick={() => props.onAddBag(props.guitar)}
         >
@@ -93,6 +123,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   onAddBag: (guitar) => {
     dispatch(ActionCreator.addBag(guitar));
+  },
+  onAmountChange: (guitar, amount) => {
+    dispatch(ActionCreator.changeAmount(guitar, amount));
   },
 });
 

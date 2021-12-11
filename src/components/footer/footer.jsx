@@ -15,23 +15,23 @@ const Footer = () => {
       links: [
         {
           name: "Акустические гитары",
-          href: "guitarshor.com"
+          href: "#"
         },
         {
           name: "Классические гитары",
-          href: "guitarshor.com"
+          href: "#"
         },
         {
           name: "Электрогитары",
-          href: "guitarshor.com"
+          href: "#"
         },
         {
           name: "Бас-гитары",
-          href: "guitarshor.com"
+          href: "#"
         },
         {
           name: "Укулеле",
-          href: "guitarshor.com"
+          href: "#"
         },
       ]
     },
@@ -40,23 +40,23 @@ const Footer = () => {
       links: [
         {
           name: "Где купить?",
-          href: "guitarshor.com"
+          href: "#"
         },
         {
           name: "Блог",
-          href: "guitarshor.com"
+          href: "#"
         },
         {
           name: "Вопрос - ответ",
-          href: "guitarshor.com"
+          href: "#"
         },
         {
           name: "Возврат",
-          href: "guitarshor.com"
+          href: "#"
         },
         {
           name: "Сервис-центры",
-          href: "guitarshor.com"
+          href: "#"
         },
       ]
     }
@@ -70,7 +70,7 @@ const Footer = () => {
       <div className="footer__filling">
         <div className="footer__container container">
           <div className="footer__left">
-            <a href="ligabank.com" className="footer__logo">
+            <a href="/#" className="footer__logo">
               <svg  width="67" height="70">
                 <use xlinkHref="#logo" />
               </svg>
@@ -79,7 +79,7 @@ const Footer = () => {
               <h2 className="visually-hidden">Мы в социальных сетях</h2>
               <ul className="footer__social-list">
                 <li className="footer__social-item">
-                  <a className="footer__social-link" href="ligabank.com">
+                  <a className="footer__social-link" href="/#">
                     <span className="visually-hidden">Мы в Facebook</span>
                     <svg width="24" height="24">
                       <use xlinkHref="#facebook" />
@@ -87,7 +87,7 @@ const Footer = () => {
                   </a>
                 </li>
                 <li className="footer__social-item">
-                  <a className="footer__social-link" href="ligabank.com">
+                  <a className="footer__social-link" href="/#">
                     <span className="visually-hidden">Мы в Instagram</span>
                     <svg width="24" height="24">
                       <use xlinkHref="#instagram" />
@@ -95,7 +95,7 @@ const Footer = () => {
                   </a>
                 </li>
                 <li className="footer__social-item">
-                  <a className="footer__social-link" href="ligabank.com">
+                  <a className="footer__social-link" href="/#">
                     <span className="visually-hidden">Мы в Twitter</span>
                     <svg width="24" height="24">
                       <use xlinkHref="#twitter" />

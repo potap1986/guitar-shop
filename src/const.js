@@ -13,6 +13,7 @@ const ActionType = {
   DELETE_ITEM_BAG: 'deleteItemBag',
   SET_SORT_TYPE: `setSortType`,
   SET_SORT: `setSort`,
+  CHANGE_AMOUNT: `changeAmount`
 }
 
 const GuitarType = {
@@ -35,6 +36,8 @@ const Promo = {
 }
 
 const MAX_RATE = 5
+
+const MIN_AMOUNT = 1
 
 const SortType = {
   PRICE: "price",
@@ -59,4 +62,4 @@ const Number = {
   MIN_VALUE: 1700
 }
 
-export {ActionType, GuitarType, StringsCount, MAX_RATE, Promo, Sorting, SortType, GUITARS_ON_PAGE, Page, Number}
+export {ActionType, GuitarType, StringsCount, MAX_RATE, MIN_AMOUNT, Promo, Sorting, SortType, GUITARS_ON_PAGE, Page, Number}

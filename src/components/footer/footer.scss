@@ -75,7 +75,6 @@
 
 	.footer__item {
 		display: inline-block;
-		margin: -3px;
 		padding: 0;
 		width: 100%;
 		vertical-align: text-top;
@@ -98,15 +97,13 @@
 	list-style: none;
 	flex-wrap: wrap;
 	padding: 0;
+	margin-left: -24px;
 }
 
 .footer__social-item {
-	margin-right: 24px;
+	margin-left: 24px;
 	margin-bottom: 24px;
 
-	&:last-of-type {
-		margin-right: auto;
-	}
 }
 
 .footer__social-link {
@@ -159,12 +156,14 @@
 .footer__item {
 
 	a {
+		display: block;
 		margin: 0;
 		padding: 0;
 		text-decoration: none;
 		color: #FFFFFF;
 		font-size: 10px;
-		line-height: 20px;
+		line-height: 12px;
+		margin-bottom: 8px;
 		letter-spacing: 0.1em;
 
 		&:hover,

@@ -6,6 +6,7 @@ import {connect} from 'react-redux'
 import {getMinPrice, getMaxPrice, getFiltered} from '../../utils'
 import PropTypes from "prop-types";
 import {GUITARS_ON_PAGE, Number} from '../../const'
+import {NavLink} from 'react-router-dom'
 
 const Catalog = (props) => {
   const [filter, setFilter] = useState({
@@ -48,7 +49,9 @@ const Catalog = (props) => {
         <div className="catalog__head">
           <h2>Каталог гитар</h2>
           <p>
-            Главная  
+            <NavLink className="button" to="/#" exact="false">
+              Главная
+            </NavLink> 
             <svg width="12" height="7">
               <use xlinkHref="#arrow" />
             </svg>

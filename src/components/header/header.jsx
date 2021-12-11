@@ -13,17 +13,17 @@ const Header = (props) => {
     },
     {
       name: "Где купить?",
-      to: "/near",
+      to: "/#",
       exact: "false"
     },
     {
       name: "О компании",
-      to: "/about",
+      to: "/#",
       exact: "false"
     },
     {
       name: "Сервис-центры",
-      to: "/servis",
+      to: "/#",
       exact: "false"
     }
   ]
@@ -47,13 +47,13 @@ const Header = (props) => {
     {
       name: "Магазины",
       svg: "location",
-      to: "/location",
+      to: "/#",
       exact: "false"
     },
     {
       name: "Поиск",
       svg: "search",
-      to: "/search",
+      to: "/#",
       exact: "false"
     },
     {
@@ -70,7 +70,7 @@ const Header = (props) => {
     <header className="header">
       <div className="header__filling">
         <div className="header__container container">
-          <a href="guitar-shop.com" className="header__logo">
+          <a href="/#" className="header__logo">
             <svg width="67" height="70">
               <use xlinkHref="#logo" />
             </svg>

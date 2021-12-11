@@ -9,6 +9,12 @@ const toBool = (value) => !!value;
 
 const Filter = (props) => {
 
+  const disabledType = {
+    electro: props.filter.string.twelve && !props.filter.string.four && !props.filter.string.six && !props.filter.string.seven ? true : false,
+    acoustic: props.filter.string.four && !props.filter.string.twelve && !props.filter.string.six && !props.filter.string.seven ? true : false,
+    ukulele: (props.filter.string.six || props.filter.string.seven || props.filter.string.twelve) && !props.filter.string.four ? true : false,
+  }
+
   const disabledString = {
     four: !props.filter.type.acoustic ? false : ((props.filter.type.electro || props.filter.type.ukulele) ? false : true),
     six: !props.filter.type.ukulele ? false : ((props.filter.type.electro || props.filter.type.acoustic) ? false : true),
@@ -41,14 +47,19 @@ const Filter = (props) => {
   const handleMinPriceOut = (evt) => {
     evt.preventDefault()
     let price = Number(props.filter.price.min)
-    if (price < props.minPrice) {
-      price = props.minPrice
-    }
+    
     if (price > props.maxPrice) {
       price = props.maxPrice
     }
-    if (price > Number(props.filter.price.max)) {
+    if (price > Number(props.filter.price.max) && Number(props.filter.price.max) !== 0 && price !== 0) {
       price = Number(props.filter.price.max)
+    }
+    if (price < props.minPrice) {
+      if (price === 0) {
+        price = ""
+      } else {
+        price = props.minPrice
+      }
     }
     props.setFilter({
       ...props.filter,
@@ -62,14 +73,18 @@ const Filter = (props) => {
   const handleMaxPriceOut = (evt) => {
     evt.preventDefault()
     let price = Number(props.filter.price.max)
-    if (price < props.minPrice) {
-      price = props.minPrice
-    }
     if (price > props.maxPrice) {
       price = props.maxPrice
     }
-    if (price < Number(props.filter.price.min)) {
+    if (price < Number(props.filter.price.min) && Number(props.filter.price.min) !== 0 && price !== 0) {
       price = Number(props.filter.price.min)
+    }
+    if (price < props.minPrice) {
+      if (price === 0) {
+        price = ""
+      } else {
+        price = props.minPrice
+      }
     }
     props.setFilter({
       ...props.filter,
@@ -174,7 +189,8 @@ const Filter = (props) => {
           <h4 className="filter__title">Тип гитар</h4>
           <input
             onChange={handleTypeChange}
-            checked={toBool(props.filter.type.acoustic)}
+            checked={disabledType.acoustic ? false : toBool(props.filter.type.acoustic)}
+            disabled={disabledType.acoustic}
             value={toBool(props.filter.type.acoustic)}
             className="filter__input-checkbox visually-hidden"
             id="acoustic"
@@ -185,7 +201,8 @@ const Filter = (props) => {
             htmlFor="acoustic">Акустические гитары</label>
           <input
             onChange={handleTypeChange}
-            checked={toBool(props.filter.type.electro)}
+            checked={disabledType.electro ? false : toBool(props.filter.type.electro)}
+            disabled={disabledType.electro}
             value={toBool(props.filter.type.electro)}
             className="filter__input-checkbox visually-hidden"
             id="electro"
@@ -196,7 +213,8 @@ const Filter = (props) => {
             htmlFor="electro">Электрогитары</label>
           <input
             onChange={handleTypeChange}
-            checked={toBool(props.filter.type.ukulele)}
+            checked={disabledType.ukulele ? false : toBool(props.filter.type.ukulele)}
+            disabled={disabledType.ukulele}
             value={toBool(props.filter.type.ukulele)}
             className="filter__input-checkbox visually-hidden"
             id="ukulele"

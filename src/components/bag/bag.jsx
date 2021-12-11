@@ -4,6 +4,7 @@ import GuitarBag from "../guitar-bag/guitar-bag";
 import { formatedNumber } from "../../utils";
 import { Promo } from "../../const";
 import PropTypes from "prop-types";
+import {NavLink} from 'react-router-dom'
 
 const Bag = (props) => {
 
@@ -43,7 +44,7 @@ const Bag = (props) => {
 
   const handlePromoChange = (evt) => {
     evt.preventDefault()
-    setPromo(evt.target.value)
+    setPromo(evt.target.value.trim())
     setSum(props.bag.totalAmount)
   }
 
@@ -68,11 +69,15 @@ const Bag = (props) => {
         <div className="bag__head">
           <h2>Корзина</h2>
           <p>
-            Главная
+            <NavLink className="button" to="/#" exact="false">
+              Главная
+            </NavLink>
             <svg width="12" height="7">
               <use xlinkHref="#arrow" />
             </svg>
-            Каталог
+            <NavLink className="button" to="/" exact="false">
+              Каталог
+            </NavLink>
             <svg width="12" height="7">
               <use xlinkHref="#arrow" />
             </svg>

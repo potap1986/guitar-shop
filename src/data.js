@@ -58,7 +58,7 @@ const guitars = [
     rating: 4,
     stringsCount: StringsCount.SEVEN,
     price: 3500,
-    image: "../img/ukulele-2.png",
+    image: "../img/acoustic-1.png",
     amount: 1,
   },
   {
@@ -106,7 +106,7 @@ const guitars = [
     rating: 4,
     stringsCount: StringsCount.SEVEN,
     price: 1700,
-    image: "../img/ukulele-2.png",
+    image: "../img/acoustic-1.png",
     amount: 1,
   },
   {
@@ -166,7 +166,7 @@ const guitars = [
     rating: 4.5,
     stringsCount: StringsCount.SIX,
     price: 7600,
-    image: "../img/ukulele-2.png",
+    image: "../img/acoustic-1.png",
     amount: 1,
   },
   {
@@ -178,7 +178,7 @@ const guitars = [
     rating: 4.5,
     stringsCount: StringsCount.SIX,
     price: 6500,
-    image: "../img/ukulele-2.png",
+    image: "../img/acoustic-1.png",
     amount: 1,
   },
   {
@@ -190,7 +190,7 @@ const guitars = [
     rating: 4.5,
     stringsCount: StringsCount.SEVEN,
     price: 12000,
-    image: "../img/ukulele-2.png",
+    image: "../img/acoustic-1.png",
     amount: 1,
   },
   {
@@ -202,7 +202,7 @@ const guitars = [
     rating: 4.5,
     stringsCount: StringsCount.SEVEN,
     price: 9900,
-    image: "../img/ukulele-2.png",
+    image: "../img/acoustic-1.png",
     amount: 1,
   },
   {
@@ -214,7 +214,7 @@ const guitars = [
     rating: 4.5,
     stringsCount: StringsCount.TWELVE,
     price: 8900,
-    image: "../img/ukulele-2.png",
+    image: "../img/acoustic-1.png",
     amount: 1,
   },
   {
@@ -226,7 +226,7 @@ const guitars = [
     rating: 4.5,
     stringsCount: StringsCount.TWELVE,
     price: 10500,
-    image: "../img/ukulele-2.png",
+    image: "../img/acoustic-1.png",
     amount: 1,
   },
   {
@@ -238,7 +238,7 @@ const guitars = [
     rating: 4.5,
     stringsCount: StringsCount.SIX,
     price: 13300,
-    image: "../img/ukulele-2.png",
+    image: "../img/acoustic-1.png",
     amount: 1,
   },
   {
@@ -322,7 +322,7 @@ const guitars = [
     rating: 4.5,
     stringsCount: StringsCount.FOUR,
     price: 6700,
-    image: "../img/ukulele-1.png",
+    image: "../img/electro-1.png",
     amount: 1,
   },
   {
@@ -382,7 +382,7 @@ const guitars = [
     rating: 4.5,
     stringsCount: StringsCount.SIX,
     price: 6500,
-    image: "../img/ukulele-2.png",
+    image: "../img/acoustic-1.png",
     amount: 1,
   },
 ];
