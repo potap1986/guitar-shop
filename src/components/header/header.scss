@@ -53,11 +53,15 @@
 
 .header__nav {
 	margin-left: 10%;
+	width: 67%;
+	flex-shrink: 0;
 }
 
 .header__info {
 	margin-left: auto;
 	align-self: start;
+	width: 16%;
+	flex-shrink: 0;
 }
 
 .header__info-quantity {
