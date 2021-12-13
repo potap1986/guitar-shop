@@ -70,7 +70,7 @@ const Footer = () => {
       <div className="footer__filling">
         <div className="footer__container container">
           <div className="footer__left">
-            <a href="/#" className="footer__logo">
+            <a href="/" className="footer__logo">
               <svg  width="67" height="70">
                 <use xlinkHref="#logo" />
               </svg>

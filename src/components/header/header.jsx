@@ -70,7 +70,7 @@ const Header = (props) => {
     <header className="header">
       <div className="header__filling">
         <div className="header__container container">
-          <a href="/#" className="header__logo">
+          <a href="/" className="header__logo">
             <svg width="67" height="70">
               <use xlinkHref="#logo" />
             </svg>
