@@ -2,6 +2,10 @@
   display: flex;
   justify-content: flex-end;
   margin-top: -2px;
+
+  @media (max-width: 768px) {}
+
+  @media (max-width: 320px) {}
 }
 
 .navigation__button {
@@ -17,14 +21,26 @@
   background-color: #FFFFFF;
   margin-left: 10px;
 
+  @media (max-width: 768px) {}
+
+  @media (max-width: 320px) {}
+
   &--next {
     width: 80px;
     margin-left: 14px;
+
+    @media (max-width: 768px) {}
+
+    @media (max-width: 320px) {}
   }
 
   &--prev {
     width: 80px;
     margin-right: 4px;
+
+    @media (max-width: 768px) {}
+
+    @media (max-width: 320px) {}
   }
 
   &--unactive {

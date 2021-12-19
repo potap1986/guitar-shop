@@ -4,6 +4,10 @@
   padding-top: 20px;
   padding-bottom: 20px;
   justify-content: flex-start;
+
+  @media (max-width: 768px) {}
+
+  @media (max-width: 320px) {}
 }
 
 .guitar-bag__close {
@@ -14,16 +18,28 @@
   border: none;
   margin-right: 4%;
   background-color: inherit;
+
+  @media (max-width: 768px) {}
+
+  @media (max-width: 320px) {}
 }
 
 .guitar-bag__image {
   height: 124px;
   margin-right: 7%;
+
+  @media (max-width: 768px) {}
+
+  @media (max-width: 320px) {}
 }
 
 .guitar-bag__info {
   width: 28%;
   margin-right: 9%;
+
+  @media (max-width: 768px) {}
+
+  @media (max-width: 320px) {}
 
   p {
     margin: 0;
@@ -35,6 +51,10 @@
     letter-spacing: 0.05em;
     color: #000000;
     word-break: break-all;
+
+    @media (max-width: 768px) {}
+
+    @media (max-width: 320px) {}
   }
 }
 
@@ -49,6 +69,10 @@
   text-transform: uppercase;
   color: #000000;
   word-break: break-all;
+
+  @media (max-width: 768px) {}
+
+  @media (max-width: 320px) {}
 }
 
 .guitar-bag__price {
@@ -62,6 +86,10 @@
   letter-spacing: 0.05em;
   color: #000000;
 
+  @media (max-width: 768px) {}
+
+  @media (max-width: 320px) {}
+
 }
 
 .guitar-bag__buttons {
@@ -70,6 +98,10 @@
   display: flex;
   justify-content: flex-end;
   width: 10%;
+
+  @media (max-width: 768px) {}
+
+  @media (max-width: 320px) {}
 
   >* {
     width: 30%;
@@ -84,11 +116,19 @@
     border: 1px solid #9F9E9E;
     background-color: inherit;
     margin-left: -1px;
+
+    @media (max-width: 768px) {}
+
+    @media (max-width: 320px) {}
   }
 
   input {
     padding: 6.5px 1px;
     text-align: center;
+
+    @media (max-width: 768px) {}
+
+    @media (max-width: 320px) {}
   }
 }
 
@@ -101,4 +141,8 @@
   margin-left: auto;
   letter-spacing: 0.05em;
   color: #000000;
+
+  @media (max-width: 768px) {}
+
+  @media (max-width: 320px) {}
 }

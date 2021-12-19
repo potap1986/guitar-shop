@@ -115,7 +115,11 @@ const Header = (props) => {
         </div>
       </div>
       <div className="header__background">
-        <img src="../img/image_header.png" alt="Гитара" />
+        <picture>
+          <source media="(max-width: 320px)" srcSet="../img/image_header-mobile.png" />
+          <source media="(max-width: 768px)" srcSet="../img/image_header-tablet.png" />
+          <img src="../img/image_header.png" alt="Гитара"  />
+        </picture>  
       </div>
     </header>
   );

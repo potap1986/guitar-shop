@@ -6,16 +6,28 @@
   border: 1px solid #DDDADA;
   padding: 12px 11px 20px;
   text-align: center;
+
+  @media (max-width: 768px) {}
+
+  @media (max-width: 320px) {}
 }
 
 .guitar__image {
   margin-bottom: 2px;
+
+  @media (max-width: 768px) {}
+
+  @media (max-width: 320px) {}
 }
 
 .guitar__rating {
   display: flex;
   padding-right: 30px;
   margin-bottom: 3px;
+
+  @media (max-width: 768px) {}
+
+  @media (max-width: 320px) {}
 
   >span {
     display: block;
@@ -27,6 +39,10 @@
     letter-spacing: 0.1em;
     color: #9F9E9E;
     padding-top: 2px;
+
+    @media (max-width: 768px) {}
+
+    @media (max-width: 320px) {}
   }
 }
 
@@ -37,11 +53,19 @@
   width: 68px;
   height: 12px;
 
+  @media (max-width: 768px) {}
+
+  @media (max-width: 320px) {}
+
   &::before {
     content: "";
     display: inline-block;
     height: 100%;
     background: url("../../img/stars.svg") transparent no-repeat center;
+
+    @media (max-width: 768px) {}
+
+    @media (max-width: 320px) {}
   }
 
   span {
@@ -52,11 +76,19 @@
     height: 100%;
     overflow: hidden;
 
+    @media (max-width: 768px) {}
+
+    @media (max-width: 320px) {}
+
     &::before {
       content: "";
       display: inline-block;
       height: 100%;
       background: url("../../img/stars-active.svg") transparent no-repeat center;
+
+      @media (max-width: 768px) {}
+
+      @media (max-width: 320px) {}
     }
   }
 }
@@ -66,14 +98,26 @@
   height: 12px;
   display: inline-block;
 
+  @media (max-width: 768px) {}
+
+  @media (max-width: 320px) {}
+
   &::before {
     background-size: 68px 12px;
     width: 68px;
+
+    @media (max-width: 768px) {}
+
+    @media (max-width: 320px) {}
   }
 
   span::before {
     background-size: 68px 12px;
     width: 68px;
+
+    @media (max-width: 768px) {}
+
+    @media (max-width: 320px) {}
   }
 }
 
@@ -82,6 +126,10 @@
   justify-content: space-between;
   flex-wrap: wrap;
   margin-bottom: 11px;
+
+  @media (max-width: 768px) {}
+
+  @media (max-width: 320px) {}
 
   span {
     font-weight: normal;
@@ -93,6 +141,10 @@
     word-break: break-all;
     margin-bottom: 5px;
 
+    @media (max-width: 768px) {}
+
+    @media (max-width: 320px) {}
+
     &:last-of-type {
       margin-left: auto;
     }
@@ -102,6 +154,10 @@
 .guitar-catalog__buttons {
   display: flex;
   justify-content: space-between;
+
+  @media (max-width: 768px) {}
+
+  @media (max-width: 320px) {}
 }
 
 .guitar-catalog__button {
@@ -116,9 +172,17 @@
   color: #FFFFFF;
   padding: 4px 9px;
 
+  @media (max-width: 768px) {}
+
+  @media (max-width: 320px) {}
+
   svg {
     margin-right: 8px;
     display: inline-block;
+
+    @media (max-width: 768px) {}
+
+    @media (max-width: 320px) {}
   }
 
   &--left {

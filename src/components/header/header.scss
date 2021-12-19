@@ -1,5 +1,9 @@
 .header {
 	margin-bottom: -31px;
+
+	@media (max-width: 768px) {}
+
+	@media (max-width: 320px) {}
 }
 
 .header__filling {
@@ -10,8 +14,19 @@
 .header__logo {
 	align-self: start;
 
+	@media (max-width: 768px) {}
+
+	@media (max-width: 320px) {}
+
 	svg {
 		color: #000000;
+
+		@media (max-width: 768px) {}
+
+		@media (max-width: 320px) {
+			height: 37px;
+			width: 40px;
+		}
 	}
 
 	&:hover,
@@ -32,6 +47,10 @@
 	display: flex;
 	padding-top: 20px;
 	padding-bottom: 15px;
+
+	@media (max-width: 768px) {}
+
+	@media (max-width: 320px) {}
 }
 
 .header__nav-list,
@@ -44,17 +63,29 @@
 	flex-wrap: wrap;
 	justify-content: flex-start;
 	font-weight: normal;
+
+	@media (max-width: 768px) {}
+
+	@media (max-width: 320px) {}
 }
 
 
 .header__info-list {
 	margin-top: 23px;
+
+	@media (max-width: 768px) {}
+
+	@media (max-width: 320px) {}
 }
 
 .header__nav {
 	margin-left: 10%;
 	width: 67%;
 	flex-shrink: 0;
+
+	@media (max-width: 768px) {}
+
+	@media (max-width: 320px) {}
 }
 
 .header__info {
@@ -62,6 +93,10 @@
 	align-self: start;
 	width: 16%;
 	flex-shrink: 0;
+
+	@media (max-width: 768px) {}
+
+	@media (max-width: 320px) {}
 }
 
 .header__info-quantity {
@@ -77,6 +112,10 @@
 	font-size: 10px;
 	line-height: 12px;
 	color: #F20505;
+
+	@media (max-width: 768px) {}
+
+	@media (max-width: 320px) {}
 }
 
 .header__nav-link,
@@ -92,6 +131,17 @@
 	letter-spacing: 0.05em;
 	color: #000000;
 
+	@media (max-width: 768px) {}
+
+	@media (max-width: 320px) {
+		font-size: 12px;
+		line-height: 20px;
+
+		letter-spacing: 0.05em;
+
+		color: #FFFFFF;
+	}
+
 	&:hover,
 	&:focus {
 		color: #474747;
@@ -104,14 +154,26 @@
 
 .header__nav-item {
 	margin-bottom: 5px;
+
+	@media (max-width: 768px) {}
+
+	@media (max-width: 320px) {}
 }
 
 .header__info-item {
 	margin: 5px 17px;
 	position: relative;
 
+	@media (max-width: 768px) {}
+
+	@media (max-width: 320px) {}
+
 	&:last-of-type {
 		margin-right: 19px;
+
+		@media (max-width: 768px) {}
+
+		@media (max-width: 320px) {}
 	}
 
 }
@@ -120,6 +182,12 @@
 
 	svg {
 		color: #000000;
+
+		@media (max-width: 320px) {
+			width: 10px;
+			height: 10px;
+		}
+
 	}
 
 	&:hover,
@@ -146,8 +214,26 @@
 	display: flex;
 	justify-content: flex-end;
 
+	@media (max-width: 768px) {
+		background-image: url('../../img/line_header-tablet.png');
+	}
+
+	@media (max-width: 320px) {
+		background-image: url('../../img/line_header-mobile.png');
+	}
+
 	img {
 		height: 299px;
 		width: 826px;
+
+		@media (max-width: 768px) {
+			height: 213px;
+			width: 664px;
+		}
+
+		@media (max-width: 320px) {
+			height: 107px;
+			width: 332px;
+		}
 	}
 }

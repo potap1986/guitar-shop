@@ -2,6 +2,10 @@
   display: flex;
   margin-bottom: 30px;
   flex-wrap: wrap;
+
+  @media (max-width: 768px) {}
+
+  @media (max-width: 320px) {}
 }
 
 .sort__title {
@@ -13,6 +17,10 @@
   letter-spacing: 0.05em;
   color: #000000;
   margin-right: 19px;
+
+  @media (max-width: 768px) {}
+
+  @media (max-width: 320px) {}
 }
 
 .sort__type {
@@ -25,6 +33,10 @@
   background: inherit;
   border: none;
   margin-right: 3.5%;
+
+  @media (max-width: 768px) {}
+
+  @media (max-width: 320px) {}
 
   &--active {
     color: #000000;
@@ -43,8 +55,16 @@
   margin-right: 15px;
   z-index: 1;
 
+  @media (max-width: 768px) {}
+
+  @media (max-width: 320px) {}
+
   &:last-of-type {
     margin-right: 4px;
+
+    @media (max-width: 768px) {}
+
+    @media (max-width: 320px) {}
   }
 
   svg {

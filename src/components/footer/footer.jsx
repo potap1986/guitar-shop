@@ -65,7 +65,11 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer__background">
-        <img src="../img/image_header.png" alt="Гитара" />
+        <picture>
+          <source media="(max-width: 320px)" srcSet="../img/image_header-mobile.png" />
+          <source media="(max-width: 768px)" srcSet="../img/image_header-tablet.png" />
+          <img src="../img/image_header.png" alt="Гитара"  />
+        </picture>  
       </div>
       <div className="footer__filling">
         <div className="footer__container container">

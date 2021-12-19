@@ -1,9 +1,17 @@
 .guitars {
   width: calc(80% - 32px);
+
+  @media (max-width: 768px) {}
+
+  @media (max-width: 320px) {}
 }
 
 .guitars__catalog {
   display: flex;
   flex-wrap: wrap;
   margin-left: -20px;
+
+  @media (max-width: 768px) {}
+
+  @media (max-width: 320px) {}
 }

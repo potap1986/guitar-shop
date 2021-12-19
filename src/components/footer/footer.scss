@@ -7,6 +7,10 @@
 	display: flex;
 	justify-content: flex-start;
 
+	@media (max-width: 768px) {}
+
+	@media (max-width: 320px) {}
+
 	&::before {
 		position: absolute;
 		z-index: 1;
@@ -16,12 +20,27 @@
 		right: 0;
 		top: 73px;
 		background-color: #3F3F3F;
+
+		@media (max-width: 768px) {}
+
+		@media (max-width: 320px) {}
 	}
 
 	img {
 		height: 299px;
 		width: 826px;
 		transform: rotate(180deg);
+
+
+		@media (max-width: 768px) {
+			height: 213px;
+			width: 664px;
+		}
+
+		@media (max-width: 320px) {
+			height: 107px;
+			width: 332px;
+		}
 	}
 }
 
@@ -30,6 +49,10 @@
 	color: #FFFFFF;
 	padding-top: 61px;
 	padding-bottom: 62px;
+
+	@media (max-width: 768px) {}
+
+	@media (max-width: 320px) {}
 }
 
 .footer__container {
@@ -40,11 +63,19 @@
 	width: 15%;
 	flex-shrink: 0;
 	margin-right: 10.5%;
+
+	@media (max-width: 768px) {}
+
+	@media (max-width: 320px) {}
 }
 
 .footer__logo {
 	margin-bottom: 51px;
 	display: block;
+
+	@media (max-width: 768px) {}
+
+	@media (max-width: 320px) {}
 
 	svg {
 		color: #FFFFFF;
@@ -73,17 +104,29 @@
 	margin: 0;
 	margin-top: 7px;
 
+	@media (max-width: 768px) {}
+
+	@media (max-width: 320px) {}
+
 
 	.footer__item {
 		display: inline-block;
 		padding: 0;
 		width: 100%;
 		vertical-align: text-top;
+
+		@media (max-width: 768px) {}
+
+		@media (max-width: 320px) {}
 	}
 
 	li {
 		width: 20%;
 		margin-right: 3%;
+
+		@media (max-width: 768px) {}
+
+		@media (max-width: 320px) {}
 
 		&:last-of-type {
 			margin-left: auto;
@@ -99,11 +142,19 @@
 	flex-wrap: wrap;
 	padding: 0;
 	margin-left: -24px;
+
+	@media (max-width: 768px) {}
+
+	@media (max-width: 320px) {}
 }
 
 .footer__social-item {
 	margin-left: 24px;
 	margin-bottom: 24px;
+
+	@media (max-width: 768px) {}
+
+	@media (max-width: 320px) {}
 
 }
 
@@ -133,6 +184,10 @@
 	line-height: 44px;
 	letter-spacing: 0.1em;
 
+	@media (max-width: 768px) {}
+
+	@media (max-width: 320px) {}
+
 }
 
 .footer__info {
@@ -144,8 +199,16 @@
 	line-height: 12px;
 	letter-spacing: 0.02em;
 
+	@media (max-width: 768px) {}
+
+	@media (max-width: 320px) {}
+
 	svg {
 		margin-right: 2px;
+
+		@media (max-width: 768px) {}
+
+		@media (max-width: 320px) {}
 	}
 
 	span {
@@ -166,6 +229,10 @@
 		line-height: 12px;
 		margin-bottom: 8px;
 		letter-spacing: 0.1em;
+
+		@media (max-width: 768px) {}
+
+		@media (max-width: 320px) {}
 
 		&:hover,
 		&:focus {

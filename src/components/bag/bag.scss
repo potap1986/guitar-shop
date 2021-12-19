@@ -1,9 +1,17 @@
 .bag {
   margin-bottom: 78px;
+
+  @media (max-width: 768px) {}
+
+  @media (max-width: 320px) {}
 }
 
 .bag__head {
   margin-bottom: 29px;
+
+  @media (max-width: 768px) {}
+
+  @media (max-width: 320px) {}
 
   h2 {
     padding: 0;
@@ -13,6 +21,10 @@
     font-size: 22px;
     line-height: 26px;
     margin-bottom: 20px;
+
+    @media (max-width: 768px) {}
+
+    @media (max-width: 320px) {}
   }
 
   p {
@@ -21,6 +33,10 @@
     font-weight: normal;
     font-size: 16px;
     line-height: 19px;
+
+    @media (max-width: 768px) {}
+
+    @media (max-width: 320px) {}
   }
 
   a {
@@ -33,12 +49,20 @@
     margin-right: 13px;
     margin-left: 14px;
     margin-bottom: 2px;
+
+    @media (max-width: 768px) {}
+
+    @media (max-width: 320px) {}
   }
 }
 
 .bag__list {
   border-top: 0.7px solid #DDDADA;
   margin-bottom: 37px;
+
+  @media (max-width: 768px) {}
+
+  @media (max-width: 320px) {}
 }
 
 .bag__footer {
@@ -59,6 +83,10 @@
   padding-bottom: 30px;
   text-align: center;
   border-bottom: 0.7px solid #DDDADA;
+
+  @media (max-width: 768px) {}
+
+  @media (max-width: 320px) {}
 }
 
 .bag__promo-title {
@@ -71,6 +99,10 @@
   letter-spacing: 0.05em;
   color: #000000;
   margin-bottom: 9px;
+
+  @media (max-width: 768px) {}
+
+  @media (max-width: 320px) {}
 }
 
 .bag__promo-info {
@@ -80,6 +112,10 @@
   line-height: 15px;
   letter-spacing: 0.05em;
   margin-bottom: 16px;
+
+  @media (max-width: 768px) {}
+
+  @media (max-width: 320px) {}
 }
 
 .bag__promo-input {
@@ -91,6 +127,10 @@
   padding: 7px 7px;
   text-align: center;
   margin-right: 33px;
+
+  @media (max-width: 768px) {}
+
+  @media (max-width: 320px) {}
 }
 
 .bag__promo-button {
@@ -103,6 +143,10 @@
   letter-spacing: 0.05em;
   color: #FFFFFF;
   padding: 11px 22px;
+
+  @media (max-width: 768px) {}
+
+  @media (max-width: 320px) {}
 }
 
 .bag__sum {
@@ -116,6 +160,10 @@
   padding-right: 8px;
   color: #000000;
   margin-bottom: 44px;
+
+  @media (max-width: 768px) {}
+
+  @media (max-width: 320px) {}
 }
 
 .bag__button {
@@ -128,4 +176,8 @@
   letter-spacing: 0.05em;
   color: #FFFFFF;
   padding: 10px 39px;
+
+  @media (max-width: 768px) {}
+
+  @media (max-width: 320px) {}
 }
