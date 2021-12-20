@@ -65,30 +65,62 @@ const Header = (props) => {
     }
   ]
 
+  
+  const mediaQueryMobile = window.matchMedia('(max-width: 320px)')
+  const [visibleMenu, setMenuVisible] = useState(true)
+  const handleWindowSizeChangeMobile = () => {
+    if (!mediaQueryMobile.matches) {
+      setMenuVisible(false)
+    }
+  };
+
+  useEffect(() => {
+    mediaQueryMobile.addListener(handleWindowSizeChangeMobile);
+    return () => {
+      mediaQueryMobile.removeListener(handleWindowSizeChangeMobile);
+    };
+  });
+
 
   return (
     <header className="header">
       <div className="header__filling">
         <div className="header__container container">
+          <button type="button"  className="header__menu" onClick={() => setMenuVisible(true)}>
+            <svg  width="14" height="9">
+              <use xlinkHref="#menu" />
+            </svg>
+          </button> 
           <a href="/" className="header__logo">
             <svg width="67" height="70">
               <use xlinkHref="#logo" />
             </svg>
           </a>
-          <nav className="header__nav">
-            <ul className="header__nav-list">
-              {headerNavLinks.map((link, index) => (
-                <li
-                  key={link.name + index}
-                  className="header__nav-item"
-                >
-                  <NavLink to={link.to} exact={link.exact} className="header__nav-link">
-                    {link.name}
-                  </NavLink>
-                </li>
-              ))}
-            </ul>
-          </nav>
+          <div className={"header__nav-wrapper" + (visibleMenu ? " header__nav-wrapper--open": "")}>
+            <nav className="header__nav">
+              <button type="button" 
+                className="header__close-menu" 
+                onClick={() => setMenuVisible(false)} 
+                aria-label="Закрыть окно"
+              >
+                <svg width="12" height="12">
+                  <use xlinkHref="#close-menu" />
+                </svg>
+              </button>
+              <ul className="header__nav-list">
+                {headerNavLinks.map((link, index) => (
+                  <li
+                    key={link.name + index}
+                    className="header__nav-item"
+                  >
+                    <NavLink to={link.to} exact={link.exact} className="header__nav-link">
+                      {link.name}
+                    </NavLink>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </div>
           <nav className="header__info">
             <ul className="header__info-list">
               {headerInfoLinks.map((link, index) => (
